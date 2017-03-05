@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+/*		
+	//  1.用对象收编变量
+		var  CheckObj = {
+			checkName:function (){
+			   //检查姓名
+			},
+			checkEmail:function (){
+			   //检查邮箱
+			},
+			checkPassword:function (){
+			   //检查密码
+			}
+		}
+		//调用方式:CheckObj.xxx()
+		
+	//2.对象的另外一种形式
+		var  CheckObj2 = function (){}      //函数也是对象
+		CheckObj2.checkName=function (){
+		   //...
+		   alert('123');
+		}
+		CheckObj2.checkEmail = function (){
+		   //...
+		}
+		CheckObj2.checkPassword = function (){
+		   //...
+		}
+	
+	//3.实例化对象类,调用方法
+		//var  o = new CheckObj2();        //使用这个对象类创建
+		//o.checkName();                         //不能复制
+	
+	//4.简单复制
+		var CheckObj3 = function (){
+		   return {                                   //返回方法
+		   	checkName:function (){
+		   	   alert('123');
+		   	},checkEmail:function(){
+		   		//...
+		   	},checkPassword:function (){
+		   	   //...
+		   	}
+		   }
+		}
+		var o2 =  CheckObj3();
+		o2.checkName();
+	//5.类的改造；构造函数
+		var CheckObj4 = function (){
+		   this.checkName=function (){
+		      //...
+		   },this.checkEmail=function (){
+		      //...
+		   },this.checkPassword = function (){
+		      alert('123');
+		   }
+		}
+		var  a = new CheckObj4(); //这里是类实例化,必须使用new
+		a.checkPassword();
+		//缺点：方法通过this绑定,使用new关键字创建新对象,新对象都对类的this上的属性进行复制。方法都不同，内存消耗大。
+	//6.原型改造
+		var checkObj5 = function (){ }
+		checkObj5.prototype={
+			checkName:function (){
+			   //...
+			},checkEmail:function (){
+			   //...  
+			},checkPassword:function (){
+			   //... 
+			}
+		}
+		var a = new checkObj5();
+		a.checkName();
+		a.checkEmail();
+		a.checkPassword();
+	//7.方法链式连接
+		var checkObj6 = function(){ }
+		checkObj6.prototype={
+			checkName:function (){
+			   //...
+			   console.log('123')
+			   return this;
+			},checkEmail:function (){
+			   //...  
+			   console.log('456');
+			   return this;
+			},checkPassword:function (){
+			   //... 
+			   console.log('789');
+			   return this;
+			}
+		}
+		var xiaoming  = new checkObj6();
+		xiaoming.checkName().checkEmail().checkPassword(); //123 456 789
+	//8.换一种方式使用对象 链式调用和添加方法
+	
+	Function.prototype.addMethod = function (name,fn){
+	    this[name]=fn;
+	    return this;   //在这里添加可以链式添加方法
+	}
+	
+	var   methods= function (){};
+			methods.addMethod('checkName',function(){
+			 	alert(123);
+			 	return this;  //在这里添加可以链式调用
+			}).addMethod('checkEmail',function (){
+			    alert(456);
+			    return this;
+			}).addMethod('checkPass',function (){
+			    alert(789);
+			    return this;
+			})
+	methods.checkName().checkEmail().checkPass();
+*/	
+	//9.使用类式添加和调用
+	Function.prototype.addMethod2=function (name,fn){
+	    this.prototype[name]=fn;
+	    return this;
+	}
+	var method = function (){};
+		method.addMethod2('checkName',function (){
+		    alert(312);
+		    return this;
+		}).addMethod2('checkPass',function (){
+		    alert(213);
+		    return this;
+		})
+	var m = new method();
+	m.checkName().checkPass();
+	//函数是js的一等公民
+	</script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//1.真假对象如何实现方法的链式调用
+		   /*构造函数式
+			var  o = function (){
+				this.alert1 = function (){
+					alert(1);
+					return this;
+				};
+				this.alert2 = function (){
+				    alert(2);
+				    return this;
+				}
+			}
+			var o1 = new o();
+			o1.alert1().alert2();
+		
+			//原型式
+			var  oP = function (){};
+			oP.prototype ={
+			    alert1 : function (){
+			        alert(1);
+			        return this;
+			    },
+			    alert2 : function (){
+			        alert(2);
+			        return this;
+			    }
+			}
+			
+			var o2 = new oP();
+			o2.alert1().alert2();
+		*/
+			
+			
+		//问题2:定义一个可以为函数自身添加多个方法的addmethod方法
+		/*	var fn1 ={
+				//定义添加方法接口
+				addMethod:function (type,fn){
+			    	this[type] = fn;
+			    	return this;   
+				}
+			}
+			fn1.addMethod('alert1',function (){
+				alert(123);
+				return this;
+			}).addMethod('alert2',function (){
+				alert(1234);
+				return this;
+			});
+			
+			fn1.alert1().alert2();
+		*/	
+			
+		//问题3:定义一个可以为函数原型也可以为自身添加方法的addMethod方法
+			
+	
+			//函数原型添加增加方法的方法
+			Function.prototype.supAdd = function (name,fn){
+			    this[name] = fn;
+			}	
+			//创建一个函数
+			var  fn1 =function (){};
+			//使用原型方法添加方法
+			fn1.supAdd('supAlert',function (){
+			    alert('Prototype AddMethod')
+			});
+			//定义自身添加方法接口，使用一般方法添加方法
+			fn1.subAdd =function (name,fn){
+				this[name] = fn;
+			}
+			fn1.subAdd('subAlert',function (){
+			    alert('Function AddMethod');
+			})
+			//调用
+			fn1.supAlert();
+			fn1.subAlert();
+			
+	</script>	
+	</body>
+</html>
