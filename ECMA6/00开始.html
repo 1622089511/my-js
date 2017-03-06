@@ -8,95 +8,93 @@
 
 	<body>
 		<script type="text/javascript">
-			/*
-					 	let ： let声明只在所在的代码块内有用,不存在变量提升
-								  死区：只要块级作用域内存在let命令，它所声明的变量就“绑定”这个区域，不再受外部的影响。
-								  变量和函数内不允许重复let声明，除非构建另外一个块级作用域。
-								  
-						
-						const : 声明常量，而且必须赋值，后续不能修改。
-									本质：变量和函数指向的内存地址不可改变，特别是指数组和对象。
-						
-						
-						es5声明方式：var 和 function
-						es6新增声明方式：let、const、import、class
-						顶层对象：es5为window，可使用window.xx。es6为全局变量与顶层对象属性脱钩。node为global。
-					*/
+	/*
+		let ： let声明只在所在的代码块内有用,不存在变量提升
+				  死区：只要块级作用域内存在let命令，它所声明的变量就“绑定”这个区域，不再受外部的影响。
+				  变量和函数内不允许重复let声明，除非构建另外一个块级作用域。
 
-			/*	
-				//exam1
-				{
-					let  a = 1;
-					var b = 2;
-					console.log(a);
-				}
-				
-				var b = [];
-				for(let i=1;i<10;i++){
-					b[i]=function (){
-						console.log(i);
-					}
-				}
-				b[6]();						
-				//exam2
-				{
-					alert(c);
-					let c = 10; 
-				}
-				
-				//exam3
-				var  ex3 = 123;
-				if(true){
-					ex3 = 456;      //这里变成了死区
-					let ex3;           
-				}
-				
-				
-				console.log( typeof x ); //没有let声明是undefined,如果let后面定义直接变成死区
-				let x;
-				
-				var tem = new Date();
-				function f(){
-					console.log(tem);
-					if(false){
-						var  tem = 10; //会带来变量提升,泄露为全局变量的问题
-					}
-				}
-				f();
-				
-				function f1(){
-				    let n = 5;
-				    if(true){
-				    	let n = 10;
-				    }
-				}
-				console.log(n); //报错
-	
-				{{{{{{{
-					let a = "hello";
-					//允许任意嵌套,外部无法调用
-				{{
-					let a ="world"; //内层作用域可以定义同样的变量词
-				}}}}}}}}}
-			*/
 
-			/*
-				const a =[];
-				a.push(1,2,3);
-				console.log(a);
-				console.log(a.length)
-			*/
+		const : 声明常量，而且必须赋值，后续不能修改。
+		本质：变量和函数指向的内存地址不可改变，特别是指数组和对象。
 
-			//获取全局对象
-			var  a = 10;
-			var getGlobal = function() {
-				if(typeof self !== 'undefined') { return self; }
-				if(typeof window !== 'undefined') { return window ;}
-				if(typeof global !== 'undefined') { return global; }
-				throw new Error('unable to locate global object');
-			};
-			console.log(getGlobal().a );
-		</script>
-	</body>
+		es5声明方式：var 和 function
+		es6新增声明方式：let、const、import、class
+		顶层对象：es5为window，可使用window.xx。es6为全局变量与顶层对象属性脱钩。node为global。
+	*/
+
+	/*	
+		{
+			let  a = 1;
+			var b = 2;
+			console.log(a);
+		}
+
+		var b = [];
+		for(let i=1;i<10;i++){
+			b[i]=function (){
+				console.log(i);
+			}
+		}
+		b[6]();						
+		//exam2
+		{
+			alert(c);
+			let c = 10; 
+		}
+
+		//exam3
+		var  ex3 = 123;
+		if(true){
+			ex3 = 456;      //这里变成了死区
+			let ex3;           
+		}
+
+
+		console.log( typeof x ); //没有let声明是undefined,如果let后面定义直接变成死区
+		let x;
+
+		var tem = new Date();
+		function f(){
+			console.log(tem);
+			if(false){
+				var  tem = 10; //会带来变量提升,泄露为全局变量的问题
+			}
+		}
+		f();
+
+		function f1(){
+		    let n = 5;
+		    if(true){
+			let n = 10;
+		    }
+		}
+		console.log(n); //报错
+
+		{{{{{{{
+			let a = "hello";
+			//允许任意嵌套,外部无法调用
+		{{
+			let a ="world"; //内层作用域可以定义同样的变量词
+		}}}}}}}}}
+	*/
+
+	/*
+		const a =[];
+		a.push(1,2,3);
+		console.log(a);
+		console.log(a.length)
+	*/
+
+	//获取全局对象
+	var  a = 10;
+	var getGlobal = function() {
+		if(typeof self !== 'undefined') { return self; }
+		if(typeof window !== 'undefined') { return window ;}
+		if(typeof global !== 'undefined') { return global; }
+		throw new Error('unable to locate global object');
+	};
+	console.log(getGlobal().a );
+</script>
+</body>
 
 </html>
