@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		/*
+			1.push  pop ==> 数组尾部加减			栈方法
+			2.unshift shift ==> 数组前面加减			队列方法
+			3.join split ==> 数组加分隔符变string string删除相同分隔符变数组 
+			4.reverse ==>  数组倒序		
+			   sort ==>快排
+			5.concat ==> 数组连接和拼凑	
+			   slice==>删除/取值                          //不带参可以
+			6.splice ==> 删除，替换，插入		//splice会影响数据的初始值
+				splice(0,2);  		删除
+				splice(0,2,1,1); 替换
+				splice(2,0,1,1,1,1,1); 插入
+			7.indexOf() ==> 从开始查找
+			   lastIndex() ==>相同参数，查找末位相同参数	
+			   
+		*/
+		var arr = [18,2,477,22,82,68,11,0];
+		var  b = arr.sort(function(num1,num2){
+			return num2 - num1;
+		});
+		console.log(b)
+		
+		var  c = arr.concat("dog","cat",[1,2,3]);
+		console.log(c);
+			
+		console.log(c.slice(4))  //如果是一个参数，则会去除数组前参数项
+		console.log(c.slice(0,2))	//如果是2个参数则会去两个参数的数据
+		var  f = c.splice(0,2,'ok','ok');
+		console.log(f);
+		c.splice(2,0,1,1,1,1,1)
+		console.log(c);
+		var  t  = c.lastIndexOf(1);		//最后1个1的位置
+		console.log(t)
+		
+		var arr2 = [0,1,2,3,2];
+		console.log(arr2.indexOf(2)) //第一个2个位置
+		
+		var arr3 = [0,1,2,3,4,5];
+		
+		console.log(arr3.slice());
+	</script>
+	</body>
+</html>

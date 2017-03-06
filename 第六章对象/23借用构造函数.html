@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		/*
+		function SuperType(){
+		   this.colors = ['red','blue']
+		}
+		function SubType(){
+			//继承SuperType()
+		   SuperType.call(this);
+		}
+		
+		var instance1= new SubType();	
+		instance1.colors.push('red');     // red blue red
+		console.log(instance1.colors);
+		
+		var instance2 = new SubType();
+		console.log(instance2.colors);   //red blue
+		*/
+	//	
+		function SuperType(name){
+		   this.name=name;
+		}
+		function SubType(){
+		   SuperType.call(this,'Nike')
+		   this.age=29;
+		}
+		var o = new SubType();
+		console.log(o.age);     //29
+		console.log(o.name); //Nike
+	</script>	
+	</body>
+</html>

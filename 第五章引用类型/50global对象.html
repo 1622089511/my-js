@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	/*
+		isNaN()
+		isPinite()
+		parseInt()
+		parseFloat()
+		...
+	*/
+	//1.URL编码方法 encodeUrl()   encodeUrlComponent(),对url进行编码,更合理
+				//encodeUrl()除了空格其它不会转义
+				//encodeUrlComponent() 所有不合格的都转义
+			//讲编码转移为正常的则为: decodeUrl()	
+			//decodeUrlComponent()
+	//2.	eval()方法
+		eval("alert('hi') ");  //==>alert('hi');
+	
+		var msg = "hello world";
+		eval("alert(msg)");   // ==>alert('hello world')
+		
+		//通过eval执行的代码被认为是包含该次调用执行环境的一部分.因此被执行的代码
+		//具有与执行环境一样的作用域链
+		eval("function say(){alert('hi')}");
+		say();
+		//严格模式禁止使用eval,eval创建的任何模式都不会有变量和函数的提升
+	//3.window对象
+	//4.Math
+		/*常数:
+				.E    .LN10    .Ln2     .LOG2E    .LOG10E      
+				.PI   .SQRT2  .SQRT1_2
+ 		
+            常用方法:		
+				min()  max()  接受一组数值返回最小/最大 
+				ceil()  floor()  向上向下取值
+				abs() 取绝对值   round()四舍五入
+				random()随机数0-1     
+		*/
+	</script>	
+	</body>
+</html>

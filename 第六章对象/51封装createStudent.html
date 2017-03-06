@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		
+		function Student(props){
+		   this.name=props.name ||  '匿名';
+		   this.grade = props.grade || 1;
+		}
+		Student.prototype.hello=function (){
+		   console.log("hello" + this.name+"!");
+		}
+		function createStudent(props){
+		   return new Student(props || {});
+		}
+		//传入测试
+		var o = createStudent({
+			name:"lee"
+		});
+		console.log(o)
+	</script>	
+	</body>
+</html>

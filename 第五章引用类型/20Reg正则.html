@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>	
+	<script>
+		//RegExp  =  Regular Expression = 正则表达式
+		 
+		/*常见格式 var expression = / pattern / flages;
+		 	g:表示全局					==>应用于所有字符串	global
+			i:表示不区分大小写    ==>忽略字符串大小写  
+			m:表示多行					==>一行文本的末尾继续下一行仍然查询  multiline
+		*/
+		var   pattern = /at/g;  //表示全局有at的元素
+		
+		//匹配'bat'或者'cat'的字符               //匹配[bc]at 不分大小写
+		var pattern2 = /[bc]at/i;                     /\[bc\]at/gi;
+		
+		//匹配'at'结尾3位字串不区分大小写           
+		var pattern3 = /.at/gi ;   
+		// .表示任意匹配值字符，*表示任意个字符，+表示至少1个，？表示0到1个
+		 
+		 
+		 //   /d{3}\s+\d{3,8}    d{3}=>3位数字   \s+至少一个空格  \d=>至少3-8个数字  综合就是匹配电话
+		 //  /d{3}\-\d{3,8}
+		var reg =  /^\d{3}\-\d{3,8}$/ ; 
+		//^表示开始 $表示结束
+		//^\d表示数字开头  \d$表示必须数字结尾
+		console.log(  reg.test('010-12455655')  );
+		
+		var a = ['a', 'b', '', '', 'c'];
+		b= a.toString().split(',');
+		console.log(b);
+		//字符串变数组加原始去空
+		var c='a   b   c  0;1,d     ';
+		var d = c.split('');
+		var s = [];
+		for(var i=0; i<d.length;i++){
+			if(d[i] !== ' '){
+			s.push(d[i]);
+			}
+		}	
+		console.log(s);
+		//split(/[\s,\+]/);  []表示满足里面1个字符选项即可
+		var  d2 = c.trim().split(/[\s\,\;]+/);  // 字符串中间带,带;照样切割
+		console.log(d2);
+		
+	</script>
+	</body>
+</html>

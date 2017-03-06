@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		var now = new Date();	
+		var uDate  = new Date(Date.UTC(2005,5,5,17,55,55));
+		var someDate = new Date(Date.parse("may 25 ,2016") )//=new Date("may 25,2016");
+		
+		console.log(now.toLocaleDateString());
+		console.log(uDate);
+		console.log(someDate);		
+		
+	//IE9用Date.now()
+		var a = Date.now();	//开始的时间
+		
+		console.log(Date.now() - a); //现在时间两者的差   
+	//IE9以下用new Date()	
+		var sTime =  new Date();;
+		var endTime =  new Date();
+		console.log(endTime.getTime() - sTime.getTime());
+		
+	</script>
+	</body>
+</html>

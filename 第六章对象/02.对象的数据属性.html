@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+/*			
+		对象具有数据属性和访问器属性。
+		数据属性有以下四种:
+		Configurable,Enumberable,Writeable,Value
+		是否能删除,是否能枚举,是否能修改,包含属性值	
+--------------------------------------------------------------				
+	var person = {	
+		//	name:'value' 这里设置的属性会影响defineProperty
+	}
+	Object.defineProperty(person,"name",{
+			writeable:false,
+			value:"ok"
+		});
+		console.log(person.name); 
+		person.name = "adidas";   //这里修改后,原值不会变化
+		console.log(person.name);
+--------------------------------------------------------------		
+		Object.defineProperty(person,"name",{
+				configurable:false,  //不可删除
+				value:"nike"
+			});
+			console.log(person.name); 
+			delete person.name;
+			console.log(person.name); //在严格模式下会发生错误
+--------------------------------------------------------------			
+	var person = {};
+	Object.defineProperty(person,"name",{
+		configurable: true,
+		value:'nike'
+	})
+	console.log(person.name); //nike
+	delete person.name;
+	console.log(person.name); //undefined
+--------------------------------------------------------------		
+*/	
+
+	</script>
+	</body>
+</html>

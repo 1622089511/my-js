@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		
+	//1.concat:拼接
+		var s = 'hello world';
+		var sCon	= s.concat('!','hellotoo',20,[1,2,3]);  //可以连接无数个,不会对自身有影响
+		console.log(sCon);	  
+	//2.slice(), substr() , substring():	 
+	//都是1个参数，正值时
+		console.log(s.slice(2));      				 //llo world
+		console.log(s.substr(2));					 //llo world
+		console.log(s.substring(2));			 //llo world
+	//	1个参数，负值时
+		console.log(s.slice(-2));                    //ld   取后2项  ==>slice(11-3)
+		console.log(s.substr(-2));                 //ld   取后2项  ==>substr(11-3)
+		console.log(s.substring(-2));           //substring   
+		
+	//2个参数
+		console.log(s.substring(0,2));         // he  取字符串位置的数。
+		console.log(s.slice(2,-2));      //去掉前面2个以及后面2个
+		
+	//3.toLowerCase()  toUpperCase()   全部小写/大写	
+	//4.indexOf(),lastIndexOf() 一个取第一个，一个取最后一个的位置
+		console.log(s.indexOf('l'));       //2 
+		console.log(s.lastIndexOf('l')); //9
+	//5. replace(arg1,arg2)替换
+	//6. trim() 除前后空格，es5方法，用正则取消^\s+\s$,''
+	//7.正则匹配一般用match获取
+	//8.localCompare()方法,返回-1 0 1;首字母在前返回1,在后返回-1
+	//9.formCharCode() //接受字符编码，转换为一串字符串
+		console.log(String.fromCharCode(104,101,108,108,111));  // hello
+		
+</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		
+		var  a = {n : 1};       //堆内存
+		var  b  = a;          //a的引用类型 
+		a.x = 1;
+		a=null;
+		//alert(a);                   //null
+		console.log(b);       //object Object
+		
+		
+		 function person(){}
+        var p1 = new person();
+        p1.name= 'zhangshan';
+        
+        var  p2= p1;                //p1 和 p2指向的是同一个内存空间
+   　 // alert(p2.name);      //zhangsan
+　　 p2.name = 'apple';　//将p2的值发生改变会影响p1的值　
+　    console.log(p1.name); //apple
+    
+        p2 = null ;//这里是指将p2的栈内存清除了，但是p2指向的堆内存还是存在！
+       alert(p1.name);
+       // alert(p1.name);//所以这里可以输出结果！
+		
+	/*	
+		js里堆内存存放引用类型,如果a是从堆内存获取的数据,用b=a，那么b修改堆内存上的属性
+		也会影响到a;
+	    栈内存一般是非引用类型，所以不会相互影响	
+	*/	
+	 var a = [];               
+	 var b = a ;
+	 b[0] = 2;
+	console.log(a[0])      // 2
+	
+	
+	</script>
+	</body>
+</html>

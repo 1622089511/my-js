@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//forEach()
+		
+		var arr = [1,21,32,213];
+		function geE(element,index,self){
+			console.log("a["+index+"]="+element);
+		}	
+		arr.forEach(geE);
+		
+		//遍历每一项
+		
+		var inventory = [
+    {name: 'apples', quantity: 2},
+    {name: 'bananas', quantity: 0},
+    {name: 'cherries', quantity: 5}
+];
+
+	function findCherries(fruit) { 
+    	return fruit.name === 'cherries';
+	}
+	console.log(inventory.find(findCherries));
+		
+	</script>	
+	</body>
+</html>

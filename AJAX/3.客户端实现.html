@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<h1></h1>	
+	<script type="text/javascript">
+	//get数据
+		document.getElementById('search').onclick=function(){
+			//发送查询请求并处理
+			var request = new XMLHttpRequest();						//发送get根据number请求查询表单
+			request.open('GET','service.php?number='+document.getElementById("number").value);
+			request.send();
+			request.onreadystatechange=function(){
+				if(request.status == 200 && request.readyState===4){//获取状态码和请求状态
+					document.getElemenById("searchResult").innerHTML = request.responseText;
+				}else{												//将数据改为request.responseText的值
+					alert("发生错误："+request.status);
+				}
+			}		
+		};
+	//post数据
+		document.getElementById('save').onclick=function(){
+			//发送查询请求并处理
+			var request = new XMLHttpRequest();						//发送get根据number请求查询表单
+			request.open('POST','service.php');
+			 		//在这里构造参数											
+			var  data =	"name="+document.getElementById("staffName").value+
+						"&number="+document.getElementById("staffNumber").value+
+						"&age="+document.getElementById("staffAge").value+
+						"&job="+document.getElementById("staffJob").value;
+					//用&讲字符串隔开
+			request.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");		
+			request.send(data);	//传递data
+			request.onreadystatechange=function(){
+				if(request.status == 200 && request.readyState===4){//获取状态码和请求状态
+					document.getElemenById("createResult").innerHTML = request.responseText;
+				}else{							//将数据改为request.responseText的值
+					alert("发生错误："+request.status);
+				}
+			}
+			
+			
+		};
+		
+		
+	</script>
+	</body>
+</html>

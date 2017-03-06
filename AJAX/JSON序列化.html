@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	//将一个对象序列化为JSON数据	
+		var  o = {
+			name: "小明",
+			age:14,
+			gender:true,
+			height:1.65,
+			skills:["java","phython","javascript"]
+		}
+		
+		console.log( JSON.stringify(o) );
+		console.log( JSON.stringify(o,null,'  ' )); //缩进输出
+		console.log( JSON.stringify(o,['name','skills','height']) ); //只输出name和skills
+		//精准序列化
+		var o2 = {
+			name: "小明",
+			age:14,
+			gender:true,
+			height:1.65,
+			skills:["java","phython","javascript"],
+			toJSON:function (){
+			   return{
+			   	'Name' : this.name,
+			   	'Age' : this.age
+			   }
+			}
+		}
+		console.log(JSON.stringify(o2));  //"Name": "小明" , "Age" : 14
+		
+	</script>
+	</body>
+</html>

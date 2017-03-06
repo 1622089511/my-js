@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	//函数声明
+		function function_name (arg1,arg2,arg3) {
+			//dosomething
+		}
+	//函数声明重要特征函数声明提升	
+		sayHi();
+		function sayHi(){
+		  	alert('hi');
+		  }
+	//函数表达式
+		var  functionName = function(arg1,arg2,arg3){
+			//dosomething
+		};
+	//没有函数提升,必须先赋值
+		//s(); //这里会错误
+		var s =  function(){
+		  		alert(213);	
+		  }
+		s();
+	//理解区别
+	
+	</script>	
+	</body>
+</html>

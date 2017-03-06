@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		
+		function  Person(name,age,job){
+			var o = new Object();
+			o.name=name;
+			o.age=age;
+			o.job=job;
+			o.sayName=function(){
+				console.log(this.name);
+			}
+			return o;
+		  }
+		//和工厂模式几乎一样
+		var o1 = new Person('lee',20,'en');
+		o1.sayName();
+	// 使用寄生模式构造数组
+		function SpecialArray(){
+			var  values=new Array();
+			//添加值
+			values.push.apply(values,arguments);
+			//添加方法
+			values.toPipedString = function(){
+				return this.join("|");
+			}
+			return values;
+		  }
+		var colors = new SpecialArray("red","blue","greed");
+		console.log(colors.toPipedString());
+	//稳妥模式
+	//没有公共属性，而且其他方法也不引用this的对象。
+	//重写如下：
+		function Person2(name,age,job){
+			//创建返回对象
+			var  o = new Object();
+			//可在这里设置私有变量和函数
+			//添加方法
+			o.sayName=function(){
+				alert(age);
+			};
+			return o;
+		}
+		var friend = Person2('nike',55,'ff');
+		friend.sayName();
+	//这就是稳妥模式	
+	</script>	
+	</body>
+</html>

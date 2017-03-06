@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">	
+		function Person(){
+		}
+		Person.prototype = {
+			name : "nike",
+			age : 29,
+			job : "softengineer",
+			sayName:function(){
+				alert(this.name);	
+			}	
+		}
+		
+		var p1= new Person();
+//		var  keys = Object.keys(Person.prototype); //返回原型方法属性array格式
+//		console.log(keys);			//name:x  age:x  job:x sayName:x			
+//	
+//		p1.family = 'rob';
+//		p1.wife= 29;
+//		p1.callName=function(){
+//			alert('ss');
+//		} 
+//		var p1Key = Object.keys(p1);		//返回实例p1的keys
+//		console.log(p1Key);                   //实例的属性和方法
+//		console.log(Object.getOwnPropertyNames(Person.prototype));
+//		
+		//判断属性和方法来自实例还是原型
+		function hasPrototypeProperty(obj,name){
+			return !obj.hasOwnProperty(name) && (name in obj);
+		}                           //实例无property返回true   &&   obj有此属性是true
+		
+		console.log(hasPrototypeProperty(p1,"name"));    //当在原型时返回true
+		p1.pp = 'nike';
+		console.log(hasPrototypeProperty(p1,"pp"));
+	</script>	
+	</body>
+</html>

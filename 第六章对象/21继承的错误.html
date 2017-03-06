@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//当通过原型链实现继承时，不能使用对象字面量创建原型方法，因为会重写原型链
+	
+	function SuperType(){
+	   this.property = true;
+	}
+	SuperType.prototype.getSuperValue=function (){
+	   return this.property;
+	}
+	//子类
+	function SubType(){
+	   this.subproperty=false;
+	}
+	//继承
+	SubType.prototype = new SuperType(); //这里失效
+	//用对象字面量添加方法
+	SubType.prototype = {
+		getSubValue :function (){
+		   return this.subproperty;
+		},
+		other:function (){
+		   return true
+		}
+	}
+	/*SubType.prototype.getSubValue=function (){
+   		return  this.subproperty;   //这样修改子类就可以调用父类的方法
+	}*/	
+	var o = new SubType();
+	console.log(o.getSuperValue()); //继承方法调用失败,现在的原型包含的是object实例,父类和子类的关系已经切断了
+	</script>
+	</body>
+</html>

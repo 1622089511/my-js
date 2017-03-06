@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+	//命名函数内部直接创建新的对象,将参数赋予实例,并返回对象
+		function createPerson(name,age,job){
+			var o = new Object();         //这里创建一个对象实例
+			o.name = name;                 //实例的属性和方法
+			o.age = age;
+			o.job = job;
+			o.sayname= function(){
+				alert(this.name);
+			}		
+		return o;                                 //这里需要返回实例
+		}		
+		var person1 = createPerson('blue',29,'cop'); //直接调用
+		var person2 =createPerson("joash",29,'police')
+		console.log(person1);
+		console.log(person2);
+		// 没有解决对象识别的问题
+	</script>	
+	</body>
+</html>

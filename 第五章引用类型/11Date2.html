@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		
+		var now = new Date();
+		console.log(now);
+		console.log(now.getFullYear())   //年       
+		console.log(now.getMonth())     //月              0-11
+		console.log(now.getDate()) 		 //	日               
+		console.log(now.getDay());     	 //星期	           0-6
+		console.log(now.getHours())     //小时            0-23
+		console.log(now.getMinutes()) //分钟            0-59
+		console.log(now.getSeconds()) //秒                0-59
+		console.log(now.getMilliseconds()) //毫米     0-1000
+		var d = new Date(2015, 5, 19, 20, 15, 30, 123);
+		console.log(d);
+		var  t = Date.now();
+		console.log(t-d);
+	</script>	
+	</body>
+</html>

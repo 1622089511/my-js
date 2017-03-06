@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			//命名空间
+			var myApp = {};
+			//将自己的变量和方法绑定到自己的命名空间里
+			myApp.name = 'myapp';
+			myApp.version = 1.0;
+			myApp.foo = function() {
+				return 'foo';
+			}
+			console.log(myApp.foo());
+	/*			
+	 	//局部作用域
+				  "use strict";
+					  function foo(){
+					  	var sum = 0;
+					  	for(var i =0;i<100;i++){}
+					  	alert(i);            //这里仍然可以访问到i
+					  	for(let  j=0;j<100;j++){
+					  		sum += j;
+					  	}
+					  	console.log(j);  // 这里无法访问到j
+					  }
+					  foo();
+			
+		//	ES6申明常量用const:来表示这个值是常量 不能修改;
+			const  a = 100;
+			a=200;
+			console.log(a);  //Assignment to constant variable
+	*/		
+	  
+	 
+		</script>
+	</body>
+
+</html>

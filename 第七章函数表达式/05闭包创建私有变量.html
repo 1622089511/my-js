@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>	
+		"use strict";
+		function create_counter(initial){
+			var x = initial || 0;
+			return {
+				inc:function(){
+					x+=1;
+					return x;
+				}
+			}
+		}
+		console.log( create_counter(10).inc() );
+//用闭包实现x的y次方
+		function makPow(x){
+			return function(y){
+				return Math.pow(y,x);
+			}
+		} 
+		console.log(makPow(3)(10));
+	</script>	
+	</body>
+</html>

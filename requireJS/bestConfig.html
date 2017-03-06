@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--data-main直接所有脚本配置了根路径-->
+		<script data-main="js/main"  src="js/require.js" defer async="true"></script>
+		<script type="text/javascript">
+			require.config({
+				//配置cdn的路径
+    			paths : {
+       				 "jquery" : ["http://libs.baidu.com/jquery/2.0.3/jquery"]
+   				 }
+			})
+			//问题：但是加入c是用jq写的 那require怎么解决呢
+			require(["jquery","a","b","c"],function ($){
+			     $(function (){ 
+			 	 alert("结果完成了");
+			 	});
+			})
+		</script>
+	</head>
+	<body>
+		<div class="abc"></div>
+	</body>
+</html>

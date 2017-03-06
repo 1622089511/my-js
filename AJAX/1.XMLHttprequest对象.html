@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		var request;
+		if(window.XMLHttpRequest){
+			request = new XMLHttpRequest();
+		}else{
+			request = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		request.open(method,url,async); //request.open("post","XXX.php",true);
+		request.send(string);			//request.setRequestHeader("Content-type","X");
+										//request.send("name=王二狗&sex=男");
+		
+	</script>
+	</body>
+</html>

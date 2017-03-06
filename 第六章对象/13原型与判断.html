@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+	//判断存在对象中还是存在原型中
+		function hasPrototyeProperty(object,name){
+			return !object.hasOwnProperty(name) && (name in object);
+		}
+		function Person(){}
+			Person.prototype.name="nike";
+			Person.prototype.age=29;
+			Person.prototype.job='no';
+			Person.prototype.sayname=function(){
+				alert(this.name);
+			}
+		var person1 = new Person();
+		console.log(hasPrototyeProperty(person1,"name"));
+		person1.name = 'adidas';
+		console.log(hasPrototyeProperty(person1,"name"))
+		
+	</script>
+	</body>
+</html>

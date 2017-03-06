@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>	
+		//ECMA只能实现实现继承,继承实际方法,依赖原型链
+		//构造函数，原型与实例
+		
+		//父类
+		function SuperType(){   
+			this.property = true;
+		  }
+		//父类原型上添加方法	                                     
+		SuperType.prototype.getSuperValue=function (){
+			return this.property;	  
+		}
+		SuperType.prototype.come=function(){
+			return 123;
+		}
+		//子类
+		function SubType(){          
+			this.subproperty = false;
+		}
+		//继承SuperType（子类的原型 =  实例化父类）
+		SubType.prototype = new SuperType();
+		//子类
+		var  instance = new SubType();
+		console.log(instance.getSuperValue()); //true
+		console.log(instance.come());    //123
+		console.log(instance.property); //true
+		//流程：创建父类,为父类添加属性和方法,创建子类，父类实例化赋予子类原型，子类实例可以使用父类的属性和方法
+		
+	</script>	
+	</body>
+</html>

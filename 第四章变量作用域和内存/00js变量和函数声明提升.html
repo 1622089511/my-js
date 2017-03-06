@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	<script type="text/javascript">
+		var  foo = " red ";
+		function bar(){
+			if(!foo){
+				var foo = 1;			
+			}
+			alert(foo);
+		}
+		bar();
+		
+		var a = 1;
+		function b(){
+			a=10;					//这里会自动提升变成a已经变成函数，此时a已经指向了function
+			return;
+			function a(){}
+		}
+		b();
+		alert(a);
+		
+		function foo(){				//实际解释	var a; bar(); a=1;
+			bar ();
+			var a=1;
+		}
+		
+		
+		
+		
+	</script>	
+	</body>
+</html>

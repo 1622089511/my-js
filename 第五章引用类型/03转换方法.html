@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	<script>
+		
+		//所有对象都有toLocalString()  toString() valueOf()
+		
+		var arr = [0,1,2];
+		var  b =arr.toString();
+		console.log(typeof b)
+		
+		var c =b.valueOf();
+		console.log(typeof c)
+		
+		
+		var c =arr.join('@');
+		console.log(c);
+		
+		var e = arr.join('|');	//joing数组中间加分割符并转换为字符串
+		e = e.split('|');			//删除中间的分隔符转换为数组
+		console.log(e)
+	</script>	
+	</body>
+</html>

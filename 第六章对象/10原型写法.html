@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		function Person(){}
+		Person.prototype={
+			constructor:Person,
+			name : 'nike',
+			age: 10,
+			job: 'farmer',
+			sayName : function(){
+				alert(this.name);
+			}
+		}
+		var friend = new Person();
+		Person.prototype.sayName = function(){alert("hi");};
+		friend.sayName();
+		Object.getOwnPropertyDescriptor('firend');
+	</script>	
+	</body>
+</html>

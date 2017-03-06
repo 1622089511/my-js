@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>	
+//创建一个用于封装继承过程的函数,在内部增强对象,最后返回对象
+		function object(o){
+		   function F(){};
+		   F.prototype = o;
+		   return new F();   
+		}
+		function 	createAnother(original){
+		   var clone = object(original);
+		   clone.sayHi=function (){
+		      console.log("hi");
+		   };
+		   return clone;
+		}
+		
+		var person = {
+			name:'nike',
+			friedns: ['lee','li']
+		}
+		var another = createAnother(person);
+		another.sayHi();
+		
+	</script>	
+	</body>
+</html>

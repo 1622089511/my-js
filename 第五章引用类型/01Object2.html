@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		var person={};
+		person.name = 'nike';
+		person.callName=function(){
+			alert(this.name);
+		}
+		
+	//	person.callName();
+	
+	function displayInfo(args){
+		var output= "";
+		if(typeof args.name == "string"){
+			output += "name" + args.name +"\n";
+		}
+		if (typeof args.age == "number"){
+			output += "age" + args.age + "\n"
+		}
+	}
+	var  a = displayInfo({
+		name: "nike",
+		age : 29
+	})
+	var  b =displayInfo({
+		name: "greg"
+	})
+	alert(b)
+	/*
+	 	如果使用方括号访问对象的属性，应该将访问的属性以字符串的形式包裹
+		peroson.name;
+		person["name"]
+		主要作用： 可以通过变量访问属性
+							可以包含带空格和其他字符的数据格式
+	*/
+	</script>	
+	</body>
+</html>

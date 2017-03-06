@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	/*	every(): 对数组每一项运行给定函数,所有都满足返回true
+	 	some()：有部分满足就返回true
+	    
+	    map()：返回函数调用的结果
+		filter()：对数组每一项运行给定函数，返回true的项组成的数组
+		
+		forEach()：每一项给函数，没有返回值
+	
+		
+	*/	
+//	map方法
+//	function pow(x){
+//		return x*x;
+//	}
+//	var arr= [1,2,3,4,5];
+//	console.log( arr.map(pow) );		//在map里面可以传递一个函数 然后让每一项调用函数；
+//	
+//	var a=[1,2,3,4,5];
+//	a.slice(1);
+//	console.log( a );
+//	
+//	var a = "firstL";
+//	console.log(a[0].toUpperCase() + a.slice(1))
+//	
+	 // filter  与map相似，不过只取为true的数据
+//	var arr= [1,2,3,4,5];
+//	var  b =arr.filter(function(s){
+//		return s%2 === 0;
+//	})
+//	console.log(b);
+//	
+	var  arr2 = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+//	var  c = arr2.filter(function(s){
+//		return s && s.trim();
+//	})
+//	console.log(c);
+
+	var  d = arr2.filter(function(element,index,self){
+	/*	console.log(element);	//依次打出值
+		console.log(index);			//依次打出index
+		console.log(self);			//每次都打出所有值
+		return true;
+	*/
+		return self.indexOf(element) === index;		//去重	
+	})
+	
+	var arr3 = [1,2,3];
+	console.log(arr3.every(function(x){
+		return x>2;
+	}))
+	console.log(arr3.some(function(x){
+		return x>2;
+	}))
+	alert(d);
+	</script>	
+	</body>
+</html>

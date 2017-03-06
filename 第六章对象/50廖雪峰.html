@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	/*	原型链
+		arr = [1,2,3] ==>arr -  Array.prototype - Object.prototype - null;
+		function Fnn(){} ==> Fnn - Function.prototype - Object.prototype - null;
+	*/	
+		//构造函数创建对象
+		function Fnn(){
+			this.name='lee';
+			this.hello = function (){
+			   console.log('hello '+this.name + '!');
+			} 
+		}
+		var o  = new Fnn();
+		 
+		//它的原型链: o - Fnn.prototype -object.prototye-null
+		
+		console.log( o.constructor === Fnn.prototype.constructor ); //true
+	
+		console.log(Fnn.prototype.constructor === Fnn); //true
+		
+		console.log(Object.getPrototypeOf(o)=== Fnn.prototype);//true
+		
+		console.log(Fnn === o.constructor ); //true
+	</script>
+	</body>
+</html>

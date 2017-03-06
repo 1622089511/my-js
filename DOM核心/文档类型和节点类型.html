@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<!--
+		1969	GML ： 通用标记语言
+		1985	SGML ： 标准通用标记语言
+		1993	HTML：
+		1998	XML：存放格式化数据		
+		-->
+	<!--
+		节点类型：		字符		字符常量
+		ELEMENT节点 ：     1 		ELEMENT_NODE	元素
+		ATTR	     2      ATTRIBUTE_NODE  属性
+		Text		 3      TEXT_NODE	            文本	
+		Comment	     8		COMMENT_NODE    注释
+		Document	 9		DOCUMENT_NODE	文档
+		DocumentType 10 	DOCUMENT_TYPE_NODE 文档类型
+		DodcumentFragment 11 DOCUMENT_FRAGMENT_NODE 文档碎片节点	
+	-->
+		<div id="tip">您目前已经登录</div>
+		<ul id="list-node"></ul>
+	<script>
+		var frag= document.createDocumentFragment();
+		for (var i = 0;i<10;i++){
+			var li = document.createElement('li');
+			frag.appendChild(li);		//直接插入9个元素到frag
+		}
+		document.getElementById('list-node').appendChild(frag);
+			
+	</script>
+	</body>
+</html>

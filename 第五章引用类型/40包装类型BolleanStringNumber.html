@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		var s1 = " some text";
+		var s2 = s1.substring(2);
+		console.log(s2)
+	/* 步骤：
+		var s1= new String(" some text");
+		var s2 = s1.substring(2);
+			  s1= null;
+		包装类型和引用类型的区别：
+			对象的生存期不同,使用new创建的实例在执行流离开当前作用域时一直保存在内存里。
+			自动创建的基本包装类型的对象,存在于一行代码的执行瞬间,然后被立即销毁。
+			这意味着我们不能给它们添加属性和方法
+	
+		var s = 'ddd';
+			  s.color = 'red';
+	   console.log(s.color); //undefiend
+	*/
+	//	转型函数Number
+		var  value = "25";
+		var number = new Number(value);
+		alert(typeof value);  //String
+		alert(typeof number); //Object
+	// Boolean类型 
+		var  a  = new Boolean(true);
+		var  b  = new Boolean(false);
+		
+	</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		var  numO = new Number(10.00);
+		//重写了toString , tolocalString , valueOf()
+		
+		//toString方法带参数会返回进制数
+		console.log( numO.toString() ); //10                   
+		console.log( numO.toString(2)); // 1010  
+		console.log( numO.toString(16)); //a
+
+		//toFixed() 会四舍五入
+		console.log( numO.toFixed(2) );
+		console.log( numO.toFixed()) //不带参数就是整数
+		
+	</script>	
+	</body>
+</html>

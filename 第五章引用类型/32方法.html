@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			var xiaoming = {
+				name: '小明',
+				birth: 1990,
+				age: function() {
+					var y = new Date().getFullYear();
+					return y - this.birth;            //这里的this指的是xiaoming
+				}
+			};
+			
+			
+		</script>
+	</body>
+
+</html>

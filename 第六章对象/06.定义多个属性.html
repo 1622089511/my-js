@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+	/*	var book={};
+		Object.defineProperties(book,{
+			_year: {
+				value :2004
+			},
+			edition:{
+				value: 1
+			},
+			year:{
+				get : function(){
+					return this._year;
+				},
+				set : function(newValue){
+					if(newValue > 2004){
+						this._year = newValue;
+						this.edition += newValue -2004;
+					}
+				}
+			}
+		});
+		
+		var descriptor = Object.getOwnPropertyDescriptor(book,"_year");
+		alert(descriptor.value);
+		*/
+		var  book={	}
+		Object.defineProperties(book,{
+			_year: {value:2004},
+			edition:{value:1},
+			year:{
+				get:function(){
+					return this._year
+				},
+				set:function(newV){
+					if(newV>this._year){
+						this._year = newV;
+						this.edition += newV-this._year;
+					}
+				}
+			}
+		})
+		var des = Object.getOwnPropertyDescriptor(book,"_year");
+		console.log(des.value);               //2004
+		console.log(des.configurable);  //false
+	
+		var des2 = Object.getOwnPropertyDescriptor(book,"year");
+		console.log(des2.value);              //undefiner
+		console.log(des2.configurable); //false
+		
+		
+	</script>	
+	</body>
+</html>

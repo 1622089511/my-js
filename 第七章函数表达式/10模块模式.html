@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//单例
+		var singleton={
+			name : 10,
+			method : function (){
+			  	//		dosomenthing
+			 }
+		}
+		//模块模式
+		var singleton=function (){
+		  		var privateV = 10;
+		  		function privateFn(){
+		  		  			return false;
+		  		  }
+		  		//特权|公有方法
+		  		return {
+		  			publicProperty : true,
+		  			publicMethond: function(){
+		  				privateV++;
+		  				return privateFn();
+		  			}
+		  		}
+		  }();
+		
+	var  app = function(){
+		//私有变量和函数
+		var components = [];
+		
+		//初始化
+		components.push(new BaseComponent());
+		
+		//公共
+		return{
+			getComponentCount :function(){
+				return components.lenth;
+			},
+			registerComponent :function(component){
+				if(typeof component== "object"){
+					components.push(component);
+				}
+			}
+		};
+	}();
+	</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+			//阶乘
+		function factorial(num){
+			return num<=1 ? 1 :  num*factorial(i-1);
+			}
+		console.log( factorial(1) );	 //这里函数执行与函数名耦合性太强，因此使用callee
+		
+		function factorial2(num){
+			return num<=1? 1 : num*arguments.callee(i-1);
+		}
+		//arguments.callee 指向当前执行函数;  在es5严格模式下不能使用,通常再次使用命名函数
+		
+		console.log( [1,2,3,4,5].map(function factorial3 (n) {
+		    return !(n > 1) ? 1 : factorial3(n-1)*n;
+		}));
+		//arguments.callee.caller被废弃现在改使用 Function.caller
+	//	---------------------------------------------------------------------
+		//function.caller        ==》指向调用当前函数的函数
+		function outer(){
+			inner();          
+		}                                   
+		function inner(){        
+			alert(inner.caller); //为了更松散的耦合使用arguments.callee.caller
+		}                                 //严格模式arguments.callee.caller会报错
+		outer();         // ==>function outer(){inner();}
+	//------------------------------------------------------------------------	
+		//arguments.caller  在函数执行时调用自身。现在这个属性已经移除
+		function whoCalled() {
+  			 if (arguments.caller == null)
+      			console.log('该函数在全局作用域内被调用.');
+   			else
+      			console.log(arguments.caller + '调用了我!');
+			}
+		whoCalled();
+	
+	</script>
+	</body>
+</html>

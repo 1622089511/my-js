@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+/*	
+		var book={
+			_year : 2004,
+			edition : 1
+		}
+		Object.defineProperty(book,"year",{	
+			get : function(){
+				return this._year;
+			},
+			set : function(newV){
+				if(newV > 2004){
+					this._year = newV;
+					this.edition += newV - 2004;
+				}
+			}
+		})
+		book.year = 2006;
+		console.log(book.edition);
+*/
+//	 一般兼容写法_defineGetter_()和_defineSetter_()两个方法
+		
+		var book={
+			_year : 2004,
+			edition:1
+		}
+		book.__defineGetter__("year",function(){
+			return this._year;
+		})
+		book.__defineSetter__("year",function(newYear){
+			if(newYear>2004){
+				this._year = newYear;
+				this.edition += newYear - 2004;
+			}
+		})
+		book.year = 2008;
+		console.log(book._year);
+		console.log(book.edition); 
+	//不支持defineProperty的浏览器不能修改enumerable 和 configurable
+	
+	</script>		
+	</body>
+</html>

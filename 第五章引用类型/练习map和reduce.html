@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	<script>
+		var pow = function(x){
+			return x*x;
+		},arr=[1,2,3,4,5];
+		console.log( arr.map(pow) );							//map
+		console.log( arr.reduce(function(x,y){			//reduce
+			return  x+y;
+		} ) )
+	//练习1：利用reduce求积	
+		function product(x,y){
+			return x*y;
+		}
+		console.log( arr.reduce(product));
+	//练习2：讲13579变成array,然后转化为number
+		function product2(s){
+			var  arr2 = [];
+			for(var i=0;i<s.length;i++){
+				arr2.push(s[i]);
+			}
+	        return 	arr2.map(function(x){
+	        	return x*1;
+	        }).reduce(function(x,y){
+	        	return x*10+y;
+	        })
+	    } 
+	//练习3：变首字母大写，其他小写
+		function normalize(s){
+			return  s.map(function(x){
+				return x.toLowerCase();
+			}).map(function(x){
+				return x[0].toUpperCase()+x.slice(1);
+			})
+		}
+	//练习4：map字符串变成整数
+		r=arr.map(function(x){
+			return parseInt(x);
+		})
+	</script>
+	</body>
+</html>

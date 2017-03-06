@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	/*	
+	  	function Person(){}
+		var friend = new Person();  //这里先实例化再添加方法到原型
+		Person.prototype.say=function (){
+				alert('hi');  
+		}                                         // 松散关系
+		friend.say();             
+	-------------------------------------------------------------------	
+	*/
+		function Person(){ }
+		var p1 = new Person();     //放在后面就行     Person 
+		Person.prototype={				//PersonPrototype				
+			constructor:Person,
+			name: 'nike',
+			age:25,
+			job:'ng'
+		}
+		console.log(p1.age); //error
+	
+	</script>
+	</body>
+</html>

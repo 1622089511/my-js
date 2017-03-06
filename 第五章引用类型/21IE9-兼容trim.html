@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		
+			String.prototype.trim2 = function () {
+    			return this.replace(/(^\s*)|(\s*$)/g,"")
+			}
+			 console.log("    sad dsa dd  ".trim() );
+			//数组去重
+			//es5
+			function unique(a){
+			    var arr=[];
+			    for(var i=0;i<a.length;i++){
+			    	if(arr.indexOf(a[i]) === -1){
+			    		arr.push(a[i]);
+			    	}
+			    }
+			    return arr;
+			}
+			console.log( unique([1,2,3,4,4,2,3,"我是谁"]) );
+			
+			
+	</script>	
+	</body>
+</html>

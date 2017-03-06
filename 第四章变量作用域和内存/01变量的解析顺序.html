@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		var a;
+		function a(){}		//函数的解析顺序优于变量声明	
+		alert(a);				//优先function
+		
+		var b=1;
+		function b(){}			//这里就会优先参数
+		alert(b);			
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	/*
+		function abs(x){
+			dosomething;
+		}
+	 function : 定义	
+	 x :  arguments
+	 abx:function name
+	 {dosomething}: function body
+	 
+	JS的函数也是一个对象,abs()是一个函数对象，abs可视为函数的变量:
+	所以有：
+	
+	var abs = function(x){     
+		dosomething;
+	};
+	
+	这是函数是匿名函数,这里按规则要加一个;
+	*/
+	
+	
+	// 函数内部有关键字arguments,永远指向当前函数的调用者传入的所有参数
+	function foo(x,y,z){
+		if(arguments.length===2){
+			z=x;
+			y=null; 
+		}
+		console.log(arguments.length);
+		console.log(x,y,z);
+	}
+		foo(10,20,30);
+		foo();
+	//rest参数
+	function foo2(a,b){
+		var i,rest=[];
+		if(arguments.length>2){
+			for(var i =0;i<arguments.length;i++){
+				rest.push(arguments[i]);
+			}
+			console.log( rest );
+		}
+	}
+	foo2(1,2,3,4);
+	// es6 里面这样写
+			/*			
+			 		"use strict";
+					function foo2(a,b,...rest){
+						console.log(rest);
+					}
+					foo(1,2,3,4);
+			*/
+	/*	function sum(...rest) {
+		   var sum =0;
+		   for(var  i in rest){
+		     sum += rest[i];
+		  }
+		  return sum;
+		}
+		console.log( sum(1,2,3,4,100) );          //110
+	*/	
+	/*     变量提升        ==> 因此要求函数内部优先声明所有变量
+	 		 "use strict";
+			function foo() {
+		    var x = 'Hello, ' + y;
+		    alert(x);					
+		    var y = 'Bob';
+			}
+			foo();             //hello,undefined;
+	*/
+	window.alert=function(){	
+	}                    //这样可以阻止alert
+	alert('无法用alert()显示了!');
+	</script>	
+	</body>
+</html>

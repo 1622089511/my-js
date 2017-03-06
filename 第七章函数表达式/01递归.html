@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		/*
+		function factorial(num){
+			if(num<=1){return 1}
+			else{
+			//	return num*factorial(num-1);
+				return num * arguments.callee(num-1);
+			}
+		}
+		console.log( factorial(10) );
+	
+		var aFactorial = factorial;
+		factorial = null;
+		alert(aFactorial(4));
+		*/
+	//	严格模式下可以通过别的办法
+		
+		var factorial = (function f(num){
+		  return num<1 ? 1 : num*f(num-1);
+		})
+		console.log( factorial(10) );
+		
+		
+		
+		
+	</script>	
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//arr => Array.prototype =>Object.prototype==>null
+		//str  => String.prototype=>Object.prototype==>null
+		
+		String.prototype.startsWith=function(text){
+			return this.indexOf(text) == 0;
+		}
+		var msg = "Hello world!";
+		console.log(msg.startsWith("H"))
+	//原型对象的问题:1.默认取相同默认值 2.类型属性问题
+		function Person(){}
+		Person.prototype={
+			constructor:Person,
+			name:'nike',
+			age:20,
+			job:'ng',
+			friends:['lee','greg'],   //
+			sayName:function(){
+				alert(this.name);
+			}
+		}
+		var p1 = new Person();
+		var p2 = new Person();
+		p1.friends.push("van");
+		console.log(p1.friends);  //lee,greg,van
+		console.log(p2.friends);	 //lee,greg,van
+	</script>	
+	</body>
+</html>

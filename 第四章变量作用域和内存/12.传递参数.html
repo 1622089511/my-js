@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	 <script type="text/javascript">
+	 	
+	 	function addTen(num){	
+	 	 return num+=10;	
+	 	}
+	 	var count = 20;
+	 	var result = addTen(count);
+	 	console.log(result);
+	 	
+	 	function setName(obj){
+	 		obj.name = 'nike';
+	 	}
+	 	var person = new Object();
+	 	setName(person);
+	 	alert(person.name);
+	 	
+	 	function setName(obj){
+	 		obj.name = 'nike';
+	 		obj = new Object();
+	 		obj.name = 'greg';
+	 	}
+	 	var person = new Object();
+	 	setName(person);
+	 	alert(person.name);
+	 	
+	 </script>	
+	</body>
+</html>

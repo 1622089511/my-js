@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+
+		//   	\b 单词边界   
+	var  reg=  /\bis\b/g;
+	var  str = "he is a boy.this is a dog";
+	console.log(str.replace(reg, ' IS ') );
+	
+	//用构造函数写 
+	var  reg2 = new RegExp('\\bis\\b' , 'g' );
+	
+	console.log(str.replace(reg2,'AA'));
+	</script>
+	</body>
+</html>

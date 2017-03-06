@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		
+		var person={
+			name:'nike',
+			friends:["lilei","hanmeimei","lee"]
+		}
+		var p1 = Object.create(person);
+		p1.name="alpha";
+		p1.friends.push("alpha");
+		console.log(person.friends); //lilei,hanmeimei,lee,alpha
+		
+		var p2 = Object.create(person);
+		p2.name="josh";
+		p2.friends.push("josh");
+		console.log(person.friends); //lilei,hanmeimei,lee,alpha,josh
+	//这个api第二个参数是通过自己描述定义的,以这种方法指定的任何属性都会覆盖原型对象上的同名属性;
+		var person2 = {
+			name: "nike",
+			friend:["li","lee"]
+		}
+		var p3 = Object.create(person2,{
+			name:{
+				value:"dojo"
+			}
+		});
+		console.log(p3.name);
+	</script>	
+	</body>
+</html>

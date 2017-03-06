@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//原型式继承
+		function object(o){
+		   function F(){}    
+		   F.prototype = o ;
+		   return new F();
+		}
+		//在object内部创建一个临时性的构造函数,然后将传入的对象作为函数的原型,
+		//本质：object()将传入的对象进行了一个浅复制.
+		var person = {
+			name:'nike',
+			friends:["pike","long","van"]
+		}
+		var p2 = object(person);
+		p2.name = "greg";
+		p2.friends.push("nike");
+		console.log(person.friends); //pike,long,van,nike
+		console.log(p2.name);
+		
+		var p3 = Object(person);
+		p3.name="nike";
+		p3.friends.push("faker");
+		 
+		console.log(person.friends);//pike,long,van,nike faker
+		console.log(p3.name);
+		
+	</script>
+	</body>
+</html>

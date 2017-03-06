@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		function Person(name,age,job){
+			this.name=name;
+			this.job=job;
+			this.age=age;
+			this.friends=["shelly","lee"];
+		}
+		Person.prototype={
+			constructor:Person,
+			sayName:function(){
+				alert(this.name);
+			}
+		}
+		var p1 = new Person("nike",29,"en");
+		var p2 = new Person("coco",20,'st')
+		p1.friends.push("yang");
+		console.log(p1.friends);  //shelly,lee,yang
+		console.log(p2.friends);  //shelly,lee
+		//p1.sayName(); //nike
+		console.log(p1.sayName== p2.sayName);//true
+		console.log(p1.friends  == p2.friends );  //false
+		//解决了原型参数问题,它们享用共同的原型方法,且各自引用数据不同
+		
+	</script>	
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--sssa<div></div>-->
+		<div id="container">这是一个元素节点</div>
+	<script>		
+	/*	if(divNode.nodeType == 1){
+			alert(123);
+		}
+	*/	
+	var divNode = document.querySelector('#container');
+		console.log(divNode.nodeName,divNode.nodeValue); //DIV,NULL
+	var attrNode = divNode.attributes[0];
+		console.log(attrNode.nodeName,attrNode.nodeValue); //id,container
+	var textNode = divNode.childNodes[0];
+		console.log(textNode.nodeName,textNode.nodeValue); //#text,内容
+	var comment =document.body.childNodes[1];	
+		console.log(comment.nodeName,comment.nodeValue); //#comment,内容
+		console.log(document.nodeName,document.nodeValue);//#document,null										/
+		console.log(document.doctype.nodeName,document.doctype.nodeValue)//HTML,null
+	var frag = document.createDocumentFragment();
+		console.log(frag.nodeName,frag.nodeValue); //#document-fragment null
+	</script>	
+	</body>
+</html>

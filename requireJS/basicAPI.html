@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div[data-name='test']{
+				width:20vh;
+				height:20vw;
+				border: 1px solid red;
+			}
+			div[data-name='test']:before{
+				width:50px;
+				height:50px;
+				font-size:20px;
+				content:'就是这么用data';
+			}
+		</style>
+		<!--<script src="vendor/a.js" type="text/javascript" charset="utf-8"></script>这么写点击之后才会渲染body-->
+		<!--使用require.js-->
+		<script src="js/require.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//在页面中require(url) url必须用数组格式,第二个参数可以加callback
+			
+			/* 本地加载格式
+			require(["js/a.js"],function (){
+			    alert('加载完成');
+			});
+			*/
+			
+			//使用CDN等资源加载格式
+			require.config({
+				//设置配置路径时候.js后缀不能加
+    			paths : {
+       				 "jquery" : ["http://libs.baidu.com/jquery/2.0.3/jquery"],
+        			"a" : "js/a"   
+   				 }
+			})
+			require(["jquery","a"],function($){
+    			$(function(){
+        		alert("无阻塞加载成功");  
+    			})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="haode" class="add" data-name="test" data-id-name="dd"></div>
+	<script>
+		
+		var el = document.getElementById('haode')
+		console.log(el.dataset);	 //通过dataset就能直接获取数据
+		console.log(el.dataset.idName); //dd
+		el.dataset.idName = "wordge"
+		console.log(el.dataset.idName)//可以直接修改
+		
+		//通过data属性来选择元素
+		var dom = document.querySelector('[data-id-name]');
+		console.log(dom)
+		
+		//也可以通过data属性来直接修改css
+	</script>	
+	</body>
+</html>

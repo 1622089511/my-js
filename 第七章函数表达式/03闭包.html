@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		/*函数可作为结果值返回
+		function sum(arr){
+			return arr.reduce(function(x,y){
+				return x+y;
+			})
+		}
+		console.log(sum([1,2,3,4]));
+	   */		
+	  //如果不需要立即求和,而是根据后面的代码根据需要再计算怎么办？
+	  			//返回求和的函数
+	 /* 	function sum(arr){
+	  		return function sum2(){
+	  			return arr.reduce(function(x,y){
+	  				return x+y;
+	  			})
+	  		}
+	  	};
+	 */ 	
+	//  	console.log(sum([1,2,3,4]));  //这里是一个函数
+	 // 	console.log(sum([1,2,3,4])()); //这才是结果10 且每次调用,即使传入相同参数,每次调用也会返回新函数
+	  	
+	  	//在上述例子里,在sum内部定义一个函数,直接访问是访问不到的。
+	  	//内部函数可以引用外部函数的参数和变量,当sum返回函数sum2时，相关参数和变量都保存在返回的函数中，这种称为“闭包（Closure）
+	/*  function add(num1,num2){
+	  	return function add2(){
+	  		return num1 +num2;
+	  	}
+	  }
+	 */ 
+	//  console.log( add(1,2)() ); 3
+	  
+	  function createFunctions(){
+	  	var arr =[];
+	  	for(var i=0;i<10;i++){
+	  		arr[i] = function(){
+	  			return i;
+	  		};
+	  	} 
+	  	return arr;	
+	  } 
+	 	var rs = createFunctions();
+		console.log(createFunctions()[8]());  //10
+		console.log(rs[1]());  //10
+		console.log(rs[9]());  //10
+	 
+	  
+	  //解决方法
+	  function createFunction2(){
+	  	var  result = new Array();
+	  	for(var i = 0;i<10;i++){
+	  		result[i] = function(num){
+	  			return function(){
+	  				return num;
+	  			}
+	  		}
+	  	}
+	  	return result;
+	  }
+	 console.log(createFunction2()[0](100)()); //8 这里会返回当前
+		                                               //arr的第0项值为100
+</script>	
+	</body>
+</html>

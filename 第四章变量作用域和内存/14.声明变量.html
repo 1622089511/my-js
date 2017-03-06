@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		function add(num1,num2){
+			var sum = num1+num2;  //省略var则会变成全局变量
+			return sum;
+		}
+		alert( add(1,2) );
+		
+		
+		//2.查询标识符
+		var color = 'blue';
+		function getColor(){	//会查询到全局
+			return color;
+		}
+		alert( getColor() );
+		
+		//3.局部与父级
+		function getColor2(){
+			var color = 'red';	//会优先选择局部变量，且停止继续查询
+			return color;
+		}
+		alert(getColor2());
+		
+		
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

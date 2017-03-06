@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		function Person(){}
+		Person.prototype.name="nike";
+		Person.prototype.age=29;
+		Person.prototype.job='aaa';
+		Person.prototype.sayname=function(){
+			console.log(this.name);
+		}
+		var person1 = new Person();
+		var person2 = new Person();
+		
+		console.log( person1.sayname == person2.sayName);  //false
+		console.log(person2.__proto__);									   //Object 
+		console.log(person2.constructor);								  //function Person(){}		
+		console.log( Object.getPrototypeOf(person1).name);   //nike    //ES5 IE9+
+		console.log(Person.prototype.isPrototypeOf(person1)); //true 确认关系
+	
+		person1.name = "blue";
+		console.log( person1.hasOwnProperty("name") );            //true
+		delete person1.name;														 //删除实例属性
+		console.log( person1.hasOwnProperty("name") );			//false
+	
+		//构造.prototye.isPrototypeOf(实例) 							判断关系                       
+		//实例.hasOwnProperty(Value);									判断是存在实例还是原型
+	    console.log(Object.getPrototypeOf(person1).name);  //ES5 IE9+ 获取原型上的属性
+	    
+	</script>
+	</body>
+</html>

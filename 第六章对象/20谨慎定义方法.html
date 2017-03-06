@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//需求：子类有时候需要重写父类的某个方法
+			/*父类
+			function SuperType(){
+				this.property = true;
+			  }
+			SuperType.prototype.getSV=function (){
+			 	return this.property;   
+			 }
+			SubType.prototype = new SuperType();
+			//子类
+			function SubType(){
+			    this.property = false;
+			    this.subproperty = true;
+			 }
+			SubType.prototype.getS = function(){
+				return this.subproperty;
+			}
+			var o = new SubType();
+			console.log(o.getSV());
+			console.log(o.getS());
+			//实例会优先找原型链上最近的方法
+		*/	
+		function SuperType(){
+				this.property = true;
+			  }
+		SuperType.prototype.getSV=function (){
+		 	return this.property;   
+		}	
+		//子类
+		function SubType(){
+		    this.property = false;
+		    this.subproperty = true;
+		 }
+		//继承
+		SubType.prototype = new SuperType();
+		SubType.prototype.getS = function(){
+			return this.subproperty;
+		}
+		//重写父类方法
+		SubType.prototype.getSV=function (){
+		    return false;
+		  }
+		var o = new SubType();
+		var o2 = new SuperType();
+		console.log(o.getSV());    //继承的子类的实例调用重写方法会变
+		console.log(o2.getSV());  //父类的实例调用仍然未变
+		
+	</script>
+	</body>
+</html>

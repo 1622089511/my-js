@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		var  v="hello";
+		(function (){
+			console.log(v); //这里是undefined
+		    var v = 'asd';
+		})();
+		
+		//变量提升过程
+		var v = "hello";
+		(function (){
+			var  v;
+		    console.log(v);
+		    v = 'asd';
+		})()
+		
+		//函数声明提升
+		function myTest(){
+		    foo();
+		    function foo(){
+		        console.log('foo can use');
+		    }
+		}
+		myTest();		//函数声明提升成功
+		
+		//函数表达式
+		function myTest2(){
+		    foo2();
+		    var  foo2 = function (){
+		        console.log('foo can use');
+		    }
+		}
+		myTest2(); //错误
+	</script>
+	</body>
+</html>

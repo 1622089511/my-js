@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//规范:构造函数函数名是大写的
+		function Person(name,age,job){
+			this.name = name;
+			this.age = age;
+			this.job = job;
+			this.sayName = function(){
+				console.log(this.name);
+			}			
+			//没有创建对象,直接赋值给this,没有return语句
+		}
+		
+		var person1 = new Person('nike',29,'farmer'); 
+		var person2 = new Person('nio',23,'jungle');
+		console.log(person1.constructor); //就是原构造函数function Person;
+		console.log(person1.constructor==Person);	//true
+		
+		//使用时注意，必须new一个新的对象，将构造函数的作用域给新对象，执行构造函数的代码，返回新对象。
+		
+		
+		//作为普通函数调用
+		Person('blue',23,'top');                  //添加到window
+		window.sayName();  		              //指向了window:blue
+
+		//在另一个对象的作用域调用
+		var o ={};
+		Person.call(o,"lee",29,'beg');   //在当前对象作用域调用o的方法
+		console.log(o.name);              //lee
+
+//构造函数的缺点,每个方法需要在每个实例上重新创建一遍.
+//函数中this.sayName=function(){}与this.sayName=new Function()是平等的
+		//以这种方式创建函数会导致不同的scope chain和标示符解析
+
+//解决方案
+	function Person2(name,age,job){
+		this.name=name;
+		this.age=age;
+		this.job=job;
+		this.sayName=sayName;				//所有对象共享函数
+	  }	
+	function sayName(){                          //缺点是封装性减弱,fnc的scope变成global
+		console.log(this.name);					
+	}
+	var  p1 = new Person2('lee',33,'c');
+	p1.sayName();
+	
+	</script>	
+	</body>
+</html>

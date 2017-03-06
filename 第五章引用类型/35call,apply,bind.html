@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		//call 和 aplly作用一样，只不过传递参数不同,apply()里面是数组，call是参数列表
+		//function运行3种方式
+		//fn();   fn.call(fn2,arg1,arg2);  fn.apply(fn2,[arg1,arg2])，对普通函数调用，我们通常把this绑定为null
+	
+		function sum(num1,num2){
+			return num1 + num2;	
+		}
+		function  deduct(num1,num2){
+			return num1 - num2; 
+		}
+		console.log(sum(5,6));
+		console.log(sum.call(deduct,5,6)); 
+		console.log(sum.apply(deduct,[5,6]));
+		
+		console.log(deduct(5,6));
+		console.log(deduct.call(sum,5,6));
+		console.log(deduct.apply(sum,[5,6]));
+		
+		var par = function(){
+			this.name = 'a';
+			this.age = 22;
+		}
+		var child = {};
+		console.log(child);  //==> Object{}
+		par.call(child);
+		console.log(child); // ==> Object{name="a",age = 22}; 这里实现了继承其他obj的方法和参数
+	
+	//看看this
+		function box1(n1,n2){
+			return n1 + n2;
+		}
+		function box2(n1,n2){
+			return box1.apply(this,[n1,n2])	
+			//return box1.call(this,arguments);
+		}
+		function box3(n1,n2){
+			return box1.call(this,1,2);
+		}
+		console.log( box1(1,2) );
+		console.log( box2(1,2) );
+		console.log( box3(1,2) );
+	//扩展作用域
+		var  color = 'red';
+		var  obj = {
+			color : 'blue'
+		}
+		function thisO(){
+			return this.color;                //this指向全局
+		}
+		console.log( thisO() );           //red 
+		console.log( thisO.apply(obj));//blue    将thisO的作用域扩展到obj内,
+		console.log( thisO.call(obj)) //blue       this指向thisO函数对象.
+		
+	
+		this.x = 8;
+		var  a = {
+			x : 81,
+		    getX:function(){
+			return this.x;
+			}
+		 }  
+		var b = a.getX;
+		console.log(a.getX());   // 81
+		console.log(b());    //8
+		console.log(b.call(a));// 81
+	//小练习
+	
+		var count = 0;
+		var oldParseInt = parseInt;   //保存原方法
+		window.parseInt = function(){   //parseInt()方法修改
+			count +=1;
+			return oldParseInt.apply(null,arguments); //只是格式
+		}
+		parseInt(10.5);
+		parseInt(11);
+		parseInt(12);
+		console.log(count);        // 3
+	
+		var a = 10.21;
+		var b = parseInt(a);
+		console.log(count);    //4
+		
+		//bind方法
+	//use1: 创建一个函数,使它永远固定的this值	
+	this.aa= 9 ;
+	var module = {
+	     aa  :   81,
+	     getA : function(){
+	     	return this.aa;
+	     }
+	}
+	console.log( module.getA() );  //81       part
+	var  retrieveX = module.getA ;           
+	console.log(retrieveX);         //9          glbal
+	
+	var  boundGetX = retrieveX.bind(module);  
+	console.log(boundGetX())  //81    
+	//2.偏函数
+	function list(){
+		return Array.prototype.slice.call(arguments);
+	}
+	var list1 = list(1,2,3,4);
+	console.log(list1);        //Array[4]  1,2,3,4
+	
+	var listBind = list.bind(false,37,38); //预设参数,arg1可设为0 null undefined ''
+	var list2 = listBind();    
+	console.log(list2);        //37,38
+	var list3 = listBind(1,2,3); 
+	console.log(list3);         //37,38 1 2 3
+</script>	
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	/*	
+		function count() {
+		    var arr = [];
+		    for (var i=0; i<10; i++) {
+		        arr[i]=function(){
+		        	return  i*i;
+		        };
+		    }
+		    return arr;
+		}
+		var rs = count();
+		console.log(rs[0]());  //100
+		console.log(rs[1]());  //100
+		console.log(rs[9]());  //100
+	--------------------------------------------------------	
+		function count(){
+			var arr  = [];
+			for (var i=0;i<10;i++){
+				arr[i]=function(num){
+					return function(){
+						return  num*num;
+					}
+				}
+			}
+			return arr;
+		}
+	console.log(count()[0](11)()); //arr第0项参数为121
+	------------------------------------------------------------
+	
+	*/
+	function count(){
+		var arr = [];
+		for (var i=0;i<10; i++) {
+			arr.push( (function(n){
+				return function(){
+					return n*n;
+				}
+			})(i))
+		}
+		return arr;
+	} 
+	console.log(count()[2]()); //4
+	console.log(count()[4]()); //16
+	</script>	
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		function sayHi(){
+			console.log('hello'+arguments[0]+','+arguments[1]);
+			console.log(arguments.length);
+		}//命名函数不是必须的，可以通过length获知传递参数的多少
+		sayHi(1,2);
+		//通过arguments改变方法
+		 
+		 function change(){
+		 	if(arguments.length == 0){
+		 		console.log(arguments[0]);
+		 	}else if(arguments.length == 2){
+		 		console.log(arguments[0]+arguments[1]);
+		 	}
+		 }
+		
+		function addsomething(num){
+			return num+100;
+		}
+		function addsomething(num){
+			return num+200;
+		}
+		console.log( addsomething(200) );
+		//毋庸置疑会被重载
+	</script>	
+	</body>
+</html>

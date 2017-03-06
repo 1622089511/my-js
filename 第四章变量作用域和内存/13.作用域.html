@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+	
+		var color="blue";			//全局作用域
+		function changeColor(){
+			if(color == "blue"){	//局部作用域
+				color = 'red';		
+			}else{
+				color = 'blue';
+			}
+		}
+		changeColor();
+	/*
+		var color="blue";	
+		function changeColor(){
+			var anotherColor = "red";      //这里访问color和anothercolor
+			function swapColors(){
+				var tempColor = anotherColor;
+				anotherColor = color;		//这里访问color和anothercolor tempcolor
+				color = tempColor;	       
+			}
+		}
+		//延长作用域 try-catch 和  with语句
+		if(true){
+			var color = 'red';
+		}
+		alert(color);	//ES6之前没有块级作用域
+		
+		
+		for(var i =0;i<10;i++){
+			var j;
+			j+=i;
+		}
+		alert(i);	 //这里循环变量不会销毁，而是继续存在
+		*/
+		
+		
+		
+	</script>	
+	</body>
+</html>
