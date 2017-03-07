@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Book = (function (){		      
+			     //静态私有变量和方法
+			     var  version = 1;
+			     var checkVersion = function (){};
+			    
+			    //创建类
+			    function  _book(id,name,price){
+			   
+			        //私有变量和私有方法
+			        var num = 100;
+			        var checkNum = function (){};
+			        
+			        //特权方法
+			     	this.getName = function (){}
+			     	this.getPrice = function (){}
+				
+					//公有属性和公有方法
+					this.id = newId;
+					this.copy=function (){};
+			        
+			        version ++ ;
+			        if(version > 3){
+			        	throw new Error("这本书的版本最高是3");
+			        }
+			        //构造器
+			        this.setName=function (){};
+			    }	
+			    //构建原型
+			    _book.prototype ={
+				//静态公有方法
+			    isChinese : true,
+			    display : function(){}
+			}
+			    
+			    //返回类
+			    return _book;
+		})();
+			
+			
+				
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

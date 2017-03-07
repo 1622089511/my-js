@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		var  Book = function (id,name,price){
+			//静态私有属性方法
+		    var 	num=1;
+		    function checkNum(){};
+		    
+		    //特权方法
+		    this.getName = function (){};
+		    this.getId = function (){};
+		    
+		    //公有属性和公有方法
+		    this.id = id;
+		    this.copy = function (){}
+		    
+		    //构造器
+		    this.setName=function (){};
+		    this.setPrice=function (){};
+		    
+		}
+		//静态公有属性和方法
+		Book.isChinese = true;
+		Book.checkVersion = function (){}
+		
+		
+		
+		Book.prototype={
+			//公有方法和属性
+			isJsBook : true ,
+			checkId : function (){},
+			checkName : function (){},
+			
+		}
+		
+		
+		
+		var  book1 = new Book(1,"js设计模式",20);
+		
+		console.log(book1.isChinese);  //undefined	
+		console.log(book1.num);			//私有属性访问不到
+		
+		console.log(Book.isChinese);		//true         静态公有属性和方法只能自己使用
+		
+		
+	</script>
+	</body>
+</html>

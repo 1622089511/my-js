@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		//字符串解构
+		
+		const   [a,b,c,d,e] = "hello";
+		console.log(a);   //h
+		
+		let{ length :  len } ='hello';
+		console.log(len); //5
+		
+		//数值和布尔值解构
+			let {toString : s} = 123;
+			console.log(s === Number.prototype.toString); //true
+		
+			let {toString: s} = true;
+			console.log( s === Boolean.prototype.toString); // true
+		
+	</script>	
+	</body>
+</html>
