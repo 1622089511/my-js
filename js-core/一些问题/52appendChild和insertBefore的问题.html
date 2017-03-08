@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="box"></div>
+		<div id="node"></div>
+		<div id="js"></div>
+		<script type="text/javascript">
+			
+			
+			
+			//appendChild父节点为空直接innerHTML,有子节点就appendChild,如果这个被添加节点已经存在，那么就相当于于删除原来的位置，移动到添加位置；
+			var oNode = document.getElementById('node');
+			var oBox = document.getElementById('box');	
+			var oDiv = document.createElement('div');
+			
+			oBox.innerHTML='<span>插入</span>';						
+			oBox.appendChild(oDiv);		
+			oBox.appendChild(oNode);	//删除原来位置，添加到子节点最后
+			
+			//sup.insertBefore(x,sub),将x插入到sup节点内部,sub之前
+			//如果第二个参数不填在谷歌和firefox浏览器会出错;
+			
+			var oJs = document.getElementById('js');
+			oBox.insertBefore(oJs,oNode);		//同样会从原来位置挪动到oNode之前
+		
+			
+		</script>
+	</body>
+</html>

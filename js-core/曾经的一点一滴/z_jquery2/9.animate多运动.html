@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>div{ width:200px; height:200px; background:red;}</style>
+    <script type="text/javascript" src="../z_jquery/jquery-3.1.0.min.js"></script>
+    <script>
+
+  $(function () {
+      
+      $('div').hover(function ()
+      {
+          $(this).stop().animate({   //stop() 解决冲突问题
+              width:300,
+              height:150,
+              opacity:50,
+              fontSize:50
+          });
+      },function () {
+          $(this).stop().animate({
+              width:100,
+              height:100,
+              opacity:100,
+              fontSize:20
+          });
+      });
+  });
+     </script>
+</head>
+<body>
+<div>dasdsad</div>
+</body>
+</html>

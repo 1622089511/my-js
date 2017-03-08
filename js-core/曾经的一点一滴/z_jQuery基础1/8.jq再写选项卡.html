@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active{background:#2aabd2}
+        #div1 div{width: 100px;height: 100px;background:#ccc; display: none;}
+    </style>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script>
+        /*window.onload=function () {
+            var oDiv=document.getElementById('div1');
+            var aDiv=oDiv.getElementsByTagName('div');
+            var aBtn=oDiv.getElementsByTagName('input');
+
+            for(var i=0;i<aBtn.length;i++)
+            {
+                aBtn[i].index=i;
+                aBtn[i].onclick=function () {
+                    for(var i=0;i<aBtn.length;i++)
+                    {
+                        aBtn[i].className='';
+                        aDiv[i].style.display='none';
+                    }
+                    this.className='active ';
+                    aDiv[this.index].style.display='block';
+                }
+            }
+        }
+    */
+       $(function () {
+            $('#div1').find('input').click(function () {
+                $('#div1').find('input').attr('class',' ');
+                $('#div1').find('div').css('display','none');
+
+                $(this).attr('class','active');
+                $('#div1').find('div').eq($(this).index()).css('display','block');
+
+            });
+
+
+
+
+
+       })
+
+    </script>
+</head>
+<body>
+<div id="div1">
+<input  class="active" type="button" value="1" />
+<input type="button" value="2" />
+<input type="button" value="3" />
+<div  style="display: block;">111</div>
+<div>222</div>
+<div>333</div>
+</div>
+</body>
+</html>

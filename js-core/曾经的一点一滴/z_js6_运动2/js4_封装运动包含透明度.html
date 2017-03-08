@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div
+        {
+            margin:20px;
+            width:100px;
+            height:100px;
+            background: red;
+            opacity:0.3;
+            font-size:14px;
+            float:left;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var aDiv=document.getElementsByTagName('div');
+            for (var i=0;i<aDiv.length;i++){
+
+                aDiv[0].onmouseover=function ()
+                {
+                    startMove(this,'opacity',100);
+                }
+
+                aDiv[0].onmouseout=function ()
+                {
+                    startMove(this,'opacity',30);
+                }
+
+                aDiv[1].onmouseover=function ()
+                {
+                    startMove(this,'width',300);
+                }
+
+                aDiv[1].onmouseout=function ()
+                {
+                    startMove(this,'width',100);
+                }
+
+                aDiv[2].onmouseover=function ()
+                {
+                    startMove(this,'height',300);
+                }
+
+                aDiv[2].onmouseout=function ()
+                {
+                    startMove(this,'height',50);
+                }
+
+                aDiv[3].onmouseover=function ()
+                {
+                    startMove(this,'fontSize',100);
+                }
+
+                aDiv[3].onmouseout=function ()
+                {
+                    startMove(this,'fontSize',30);
+                }
+
+            }
+        }
+        function  startMove(obj,attr,iTarget)
+        {
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function () {
+                var iCur=0;
+                if(attr=='opacity')
+                {
+                    iCur=parseInt(parseFloat(getStyle(obj,attr)*100));
+                }
+                else
+                {
+                    iCur=parseInt(getStyle(obj,attr));
+                }
+
+                var iSpeed=(iTarget-iCur)/8;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed) :Math.floor(iSpeed);
+
+                if (iCur==iTarget)
+                {
+                    clearInterval(obj.timer);
+                }
+                else
+                {
+                    if (attr=='opacity')
+                    {
+                        obj.style.filter='alpha(opacity'+(iCur+iSpeed)+')';
+                        obj.style.opacity=(iCur+iSpeed)/100;
+                    }
+                    else
+                    {
+                        obj.style[attr]=iCur+iSpeed+'px';
+                    }
+
+                }
+            },30)
+
+        }
+
+        function getStyle(obj,attr){
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[attr];
+            }
+            else{
+                return getComputedStyle(obj,false)[attr];
+            }
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+<div id="div1">dsad</div>
+<div id="div2">asdas</div>
+<div id="div3">asdasd</div>
+<div id="div4">dasdasdsad</div>
+<div id="div5"></div>
+
+</body>
+</html>

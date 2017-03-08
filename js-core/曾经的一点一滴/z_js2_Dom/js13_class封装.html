@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function getByClass(oParent,sClass) {
+            var aEle=oParent.getElementByTagName(' * ');  //选取所有
+            var i=0;
+            var aResult=[];
+            for (i=0;i<aEle.length;i++){
+                if(aEle.className==sClass){
+                    aResult.push(aEle[i]);
+                }
+            }
+            return aResult;
+        };
+
+        window.onload=function () {
+            var oUl=document.getElementById('ul1');
+            var aBox=getByClass(oUl,'box')
+            var j=0;
+            for(j=0;j<aBox.length;j++){
+                aBox[i].style.background='yellow';
+            }
+      };
+
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li class="box"></li>
+    <li></li>
+    <li class="box"></li>
+    <li class="box"></li>
+    <li></li>
+    <li></li>
+
+</ul>
+</body>
+</html>

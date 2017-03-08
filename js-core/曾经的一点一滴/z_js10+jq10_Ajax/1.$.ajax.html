@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+
+            $.ajax({
+                url: 'xxx.php',
+                data: 'name=hello&age=20 ',
+                type:'post',
+                success:function (data) {
+                    alert(1);
+                },
+                error:function () {
+                    alert(2);
+                }
+            });
+
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

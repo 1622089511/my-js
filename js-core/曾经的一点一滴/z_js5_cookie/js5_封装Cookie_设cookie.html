@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function  setCookie(name,value,iDay) {
+            var  oDate=new Date();
+
+            oDate.setDate(oDate.getDate()+iDay);  //设置(当前时间+用户保存时间)
+
+            document.cookie=name+' = '+value+';'+'expires='+oDate;
+
+        };
+
+        setCookie('username','abc',30);
+        setCookie('password','abc',60);
+
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

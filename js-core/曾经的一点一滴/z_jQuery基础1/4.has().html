@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script>
+        /*
+         $下常用方法has() not() filter() next() prev() find() eq() index() attr()
+         */
+        //attr()
+        $(function () {
+
+            $('div').has('span').css('background','red');  //包含
+
+            //filter和not针对当前元素  has针对元素内部元素
+        });
+
+    </script>
+</head>
+<body>
+<div title="aaa"><span></span>123</div>
+<div class="box">456</div>
+</body>
+</html>

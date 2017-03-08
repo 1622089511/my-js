@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var aA = document.getElementsByTagName('a');
+
+            for (var i = 0; i < aA.length; i++) {
+            aA[i].onclick = function () {
+                this.parentNode.style.display = 'none';   //parentNode取父节点
+                 };
+          }
+        }
+    </script>
+</head>
+<body>
+<ul >
+    <li>111<a href="javascript:;">隐藏</a></li>
+    <li>222<a href="javascript:;">隐藏</a></li>
+    <li>333<a href="javascript:;">隐藏</a></li>
+</ul>
+</body>
+</html>

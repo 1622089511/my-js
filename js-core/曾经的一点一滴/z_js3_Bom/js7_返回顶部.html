@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn1{
+            position:fixed; bottom:0;right:0;
+        }
+        body{height:2000px;}
+    </style>
+    <script>
+        window.onload=function () {
+                var oBtn=document.getElementById('btn1');
+                var timer=null;
+                oBtn.onclick=function () {
+                        timer=setInterval(function(){
+                             var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+                             var iSpeed=Math.floor(-scrollTop/8);  //取速度
+
+                            if(scrollTop==0){
+                                clear(timer);
+                            };
+                            document.documentElement.scrollTop=document.body.scrollTop=scrollTop+iSpeed;
+                        },30)
+                };
+        };
+    </script>
+</head>
+<body >
+asdsadsadsadsa<br/>
+asdasdasda<br/>
+sadsadsada<br/>
+asdsadsa<br/>
+dsasadsads<br/>
+adasdasdsa<br/>
+dasd
+<input type="button" id="btn1" value="回到顶部" />
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oText=document.getElementById('txt1');
+            var oTxt=document.getElementById('txt2');
+            var oBtn=document.getElementById('btn1');
+            //对按钮加事件
+            oBtn.onclick=function () {
+                oText.value+=oTxt.value+' \n';
+                oTxt.value=' ';
+            };
+            //对输入的文本框加事件
+            oTxt.onkeydown=function (ev) {
+                var oEvent=ev || event;
+                if(oEvent.ctrlKey &&oEvent.keyCode==13){
+                    oText.value+=oTxt.value+' \n';
+                    oTxt.value=' ';
+                }
+            };
+
+        };
+    </script>
+
+</head>
+<body>
+<textarea name="提交留言" id="txt1" cols="30" rows="10"></textarea>
+<br/>
+<input type="text" id="txt2"   />
+<input type="button" id="btn1" value="留言">
+</body>
+</html>

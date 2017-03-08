@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script>
+        $(function () {
+
+            $('div').click(function () {
+                alert('123');
+            });
+            $('div').clone(true).appendTo('span');
+            //复制并添加，clone可接收参数true，复制之前的操作行为
+
+
+
+        })
+    </script>
+</head>
+<body>
+<div>div</div>
+<span>span</span>
+
+</body>
+</html>

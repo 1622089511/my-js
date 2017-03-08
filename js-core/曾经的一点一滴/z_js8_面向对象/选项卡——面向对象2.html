@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 input {background:#CCC;}
+        #div1 .active{background: yellow;}
+        #div1 div{background: #ccc;width:100px;height:100px;display:none;}
+    </style>
+    <script>
+        /*改写前提：都在onload里
+                         不能嵌套,可以有全局变量
+                         onload作用:初始化整个程序
+          过程            onload——构造函数
+                             全局变量——属性
+                             函数————方法
+          改错
+                            this   事件   闭包   传参
+        */
+        window.onload=function () {
+            var oTab=new TabSwith('div1');
+        };
+
+
+        function TabSwith(id) {
+            var oDiv=document.getElementById(id);
+            this.aBtn=oDiv.getElementsByTagName('input');
+            this.aDiv=oDiv.getElementsByTagName('div');
+            var i=0;
+
+            var _this=this;
+
+            for(i=0;i<this.aBtn.length;i++)
+            {
+                this.aBtn[i].index=i;
+                this.aBtn[i].onclick=function ()
+                {
+                    _this.tab(this);
+                };
+            }
+        }
+
+
+        TabSwith.prototype.tab=function(oBtn) {
+            for(i=0;i<this.aBtn.length;i++)
+            {
+                this.aBtn[i].className=' ';
+                this.aDiv[i].style.display='none';
+            }
+            oBtn.className='active';        //不是对象的方法里的属性
+            this.aDiv[oBtn.index].style.display='block';
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <input class="active" type="button"  value="1"  />
+    <input type="button" value="2"/>
+    <input type="button" value="3"/>
+    <div style="display:block">sadasdsa</div>
+    <div>asdasdas</div>
+    <div>dasdasd</div>
+</div>
+</body>
+</html>

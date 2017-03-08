@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        header{
+            width: 800px;
+            height: 80px;
+            background: #3567AC;
+            margin: 0px auto;
+            text-align: center;
+            line-height: 80px;
+        }
+        section{
+            width: 800px;
+            height: 600px;
+            margin: 0px auto;
+            text-align: center;
+        }
+        section>div{
+            float: left;
+        }
+        section>div:first-child{
+            height: 600px;
+            width: 150px;
+            background: #E3912B;
+        }
+        section>div:nth-child(2){
+            height: 600px;
+            width: 650px;
+        }
+        section>div:nth-child(2)>div:first-child{
+            height: 250px;
+            width: 650px;
+        }
+        section>div:nth-child(2)>div:first-child>div{
+            float: left;
+        }
+        section>div:nth-child(2)>div:first-child>div:first-child{
+            width: 300px;
+            height: 250px;
+            background: #DA4D44;
+        }
+        section>div:nth-child(2)>div:first-child>div:nth-child(2){
+            width: 350px;
+            height: 250px;
+            background: #3DBBD1;
+        }
+        section>div:nth-child(2)>div:nth-child(2){
+            height: 350px;
+            width: 650px;
+        }
+        section>div:nth-child(2)>div:nth-child(2)>div{
+            float: left;
+        }
+        section>div:nth-child(2)>div:nth-child(2)>div:first-child{
+            width: 230px;
+            height: 350px;
+            background: #C4D960;
+        }
+        section>div:nth-child(2)>div:nth-child(2)>div:nth-child(2){
+            width: 190px;
+            height: 350px;
+            background: #538FCE;
+        }
+        section>div:nth-child(2)>div:nth-child(2)>div:nth-child(3){
+            width: 230px;
+            height: 350px;
+            background: #EDA948;
+        }
+        footer{
+            width: 800px;
+            height: 80px;
+            background: #578AC1;
+            margin: 0px auto;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>header</h1>
+</header>
+<section>
+    <div><h1>1</h1></div>
+    <div>
+        <div>
+            <div><h1>2</h1></div>
+            <div><h1>3</h1></div>
+        </div>
+        <div>
+            <div><h1>4</h1></div>
+            <div><h1>5</h1></div>
+            <div><h1>6</h1></div>
+        </div>
+    </div>
+</section>
+<footer>
+    <h1>footer</h1>
+</footer>
+</body>
+</html>

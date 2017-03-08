@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+				如下代码：
+				var fn=function(a,b,c){
+				    return a+b+c;
+				}
+				需要写一个函数，满足curry(fn)(1)(2)(3) //6
+			*/
+			var fn = function(a, b, c) {
+				return a + b + c;
+			}
+
+			function curry(fn) {
+				var arr = [],
+				mySlice = arr.slice,
+				fnLen = fn.length;
+
+				function curring() {
+					arr = arr.concat(mySlice.call(arguments));
+					if(arr.length < fnLen) {
+						return curring;
+					}
+					return fn.apply(this, arr);
+				}
+				return curring
+			}
+			console.log( curry(fn)(1)(2)(3) ); //6
+			/*	
+				使用原生JS实现：(10).add(10).reduce(2).add(10) //28，
+			*/
+			function add(b, a) {
+				return 10 + a;
+			}
+
+			Number.prototype.add = function(num) {
+				return this + num;
+			}
+			Number.prototype.reduce = function(num) {
+				return this - num;
+			}
+			console.log((10).add(10).reduce(2).add(10));
+		</script>
+	</body>
+
+</html>

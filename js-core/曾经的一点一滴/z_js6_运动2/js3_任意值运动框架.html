@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:100px;
+            height:50px;
+            background: darkorchid;
+            margin-top:50px;
+        }
+    </style>
+    <script type="text/javascript">
+
+        window.onload=function () {
+                 var aDiv = document.getElementsByTagName('div');
+                 var i = 0;
+                 for (i = 0; i < aDiv.length; i++) {
+                 aDiv[i].timer=null;
+                 aDiv[i].onmouseover = function () {
+                    startMove(this,500);
+                     }
+                  aDiv[i].onmouseout = function () {
+                    startMove(this,100);
+                 }
+            }
+        }
+
+
+        //多物体运动框架
+        function  startMove(obj,iTarget)
+        {
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function () {
+                var iCur=parseInt(getStyle(obj,'width'));
+                var iSpeed=(iTarget-iCur)/6;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed) :Math.floor(iSpeed);
+
+                if (iCur==iTarget)
+                {
+                    clearInterval(obj.timer);
+                }
+                else
+                {
+                    obj.style.width=iCur+iSpeed+'px'
+                }
+            },30)
+
+        }
+
+
+        function getStyle(obj,attr){
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[attr];
+            }
+            else{
+                return getComputedStyle(obj,false)[attr];
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<div ></div>
+<div ></div>
+<div ></div>
+</body>
+</html>

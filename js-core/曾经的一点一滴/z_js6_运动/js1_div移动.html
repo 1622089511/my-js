@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:100px;height:100px; background:#245580;position:absolute;}
+    </style>
+    <script>
+          /*  随鼠标运动
+          document.onmousemove=function(ev){
+                var oEvent=ev || event;
+                oDiv.style.left=oEvent.clientX+'px';
+                oDiv.style.top=oEvent.clientY+'px';
+            };oBtn.starMove=
+            */
+          window.onload=function() {
+            var oDiv=document.getElementById('div1');
+
+            function startMove() {
+                setInterval(function () {
+                    oDiv.style.left=oDiv.offsetLeft+10+'px';
+                },100);
+            };
+               startMove();
+
+        };
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

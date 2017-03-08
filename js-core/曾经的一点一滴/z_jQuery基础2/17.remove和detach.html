@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script>
+        $(function () {
+            $('div').get(0).onclick=function () {
+                alert('123');
+                $('div').remove();
+            };
+            //remove()删掉所有操作和行为
+
+            //detach() 和 remove()类似 但会保留之前操作的行为
+
+                 //  var oDiv= $('div').detach();
+                 //  $('body').append(oDiv);
+
+        });
+
+
+    </script>
+</head>
+<body>
+<div style="background: red;">div</div>
+</body>
+</html>

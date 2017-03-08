@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{
+            display: -webkit-box;
+            display: -moz-box;
+            -webkit-display: box;
+            height: 100px;
+        }
+        .left{
+            width: 100px;
+            height: 500px;
+            background: yellow;
+        }
+        .right{
+        	-webkit-box-flex:3;
+            -moz-box-flex:3;
+            box-flex:3;
+            background: pink;
+            }
+        .right2{
+            -webkit-box-flex:20;
+            -moz-box-flex:20;
+            box-flex:20 ;
+            background: #d5d5d5;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="right2"></div>
+</div>
+</body>
+</html>

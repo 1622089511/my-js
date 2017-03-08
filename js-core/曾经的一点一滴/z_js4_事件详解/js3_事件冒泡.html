@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 150px;
+            background: #2aabd2;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oBtn=document.getElementById('btn1');
+            var oDiv=document.getElementById('div1');
+
+            oBtn.onclick=function () {
+                oDiv.style.display='block';
+                alert('按钮被点了');
+            };
+            document.onclick=function(){
+                oDiv.style.display='none';
+                alert('页面被点了');
+            }
+
+
+        };
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="显示" />
+<div id="div1"></div>
+</body>
+</html>

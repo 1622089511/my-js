@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../z_jquery/jquery-3.1.0.min.js"></script>
+    <script>
+  /*      $(function () {
+            $('li').each(function (index,elements) {  //索引和元素
+                    $(elements).html(index);
+
+            })
+        });
+*/
+  //作用：工具方法，遍历所有元素
+        window.onload=function () {
+            var aLi=document.getElementsByTagName('li');
+            $.each(aLI,function (index,elements) {
+                elements.innerHTML=index;
+            })
+
+
+        }
+
+    </script>
+</head>
+<body>
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+</ul>
+</body>
+</html>

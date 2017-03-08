@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		//组合继承
+			//声明父类
+			function Father(name){
+			    this.name = name;
+			    this.friend = ["a","b","c"];
+			}
+			//父类原型共有方法
+			Father.prototype.sayFriend = function (){
+			    console.log(this.friend);
+			}
+			//声明子类
+			function Son(name,age){
+			    Father.call(this,name);	//在子类中继承父类name属性
+			    this.age = age;
+			}
+			//继承
+			Son.prototype = new Father();
+			//子类添加共有方法
+			Son.prototype.getAge=function (){
+			    console.log(this.age);
+			}
+			
+			//实例化
+			var son1 = new Son("jack",23);
+			var son2 = new Son("lili",25);
+			
+			
+			//没有互相干扰,都能使用共有属性和方法
+			son1.friend.push("d");
+			son1.sayFriend();   //a,b,c
+			son1.getAge();	   //23
+			
+			son2.sayFriend();   //a,b,c
+			son2.getAge();	  //25
+			
+	</script>	
+	</body>
+</html>

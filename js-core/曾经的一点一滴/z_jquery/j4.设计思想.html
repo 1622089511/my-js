@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+</head>
+<body>
+<div id="div1">1</div>
+</body>
+<script>
+    $(function () {
+
+        $('#div1').click(function () {
+                                                          //jq写法 alert( $(this).html() );
+           alert(this.innerHTML);           //js源生写法
+                                                            //可以共存不能混用
+        });
+
+    });
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    window.onload=function () {
+        var oBtn=document.getElementById('btn1');
+        var oDiv=document.getElementById('div1');
+
+        oBtn.onclick=function () {
+            var arr=oDiv.innerHTML.split(',');
+            arr.push(arr[0]);
+            arr.shift();
+            //反之pop   unshift
+            oDiv.innerHTML=arr;
+
+        };
+
+
+
+    };
+
+    </script>
+</head>
+<body>
+<input type="button" value="切换" id="btn1" />
+<div id="div1">1,2,3,4</div>
+</body>
+</html>

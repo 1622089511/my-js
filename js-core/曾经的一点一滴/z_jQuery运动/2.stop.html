@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:100px;height: 100px;background:red;opacity:0.3;}
+        #div2{width:100px;height: 100px;background:red;opacity:0.3; margin-top:20px;}
+    </style>
+    <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            //animate(json设置属性，时间控制快慢，运动形式（默认swing(慢快慢),linear(匀速)），callback)
+            $('#div1').click(function () {
+                //$(this).animate({width:300,height:300,opacity:0.8},2000,'linear');
+                $(this).animate({width:300},2000).animate({height:300,opacity:0.8});
+            });
+
+           $('#div2').click(function () {
+               //$('#div1').stop(); //阻止当前运动
+
+               //$('#div1').stop(true);        //阻止后续运动
+               //$('#div1').stop(true,true);//立即停止并到指定目标点
+               $('#div1').finish();//停止运动，到所有指定目标点
+           });
+
+        });
+
+
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

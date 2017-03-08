@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        background:green;
+        overflow:hidden;
+        zoom:1;
+
+    }
+    .item{
+        height:50px;
+        background: red;
+        margin-top:50px;
+        margin-bottom:50px;
+    }
+</style>
+<!--margin-top:错误传递  上下margin叠压。解决方法：尽量使用同方向的margin,例如top和bottom -->
+<body>
+<div id="box">
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+</body>
+</html>

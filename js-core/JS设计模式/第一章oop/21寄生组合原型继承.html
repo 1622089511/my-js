@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//定义父类
+			function SuperClass(name){
+			    this.name = name;
+			    this.colors = ["red","yellow","green"];
+			}
+			SuperClass.prototype.getName = function (){
+			    return this.name;
+			}
+			//定义子类
+			function SubClass(name,time){
+			    SuperClass.call(this,name);
+			    this.time=time;
+			}
+			//寄生式继承父类原型
+			inheritPrototype(SubClass,SuperClass);
+			//子类新增原型方法
+			SubClass.prototype.getTime = function (){
+			    console.log(this.time);
+			}
+			
+			
+
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

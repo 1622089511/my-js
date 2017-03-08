@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+	(function(){		
+			//私有变量和私有方法
+  			var  privateVariable = 10;
+  			function privateFn(){
+  			  			return false;
+  			  }
+  
+  			//构造函数
+  			Myobj = function (){};
+  			//公有方法/特权方法
+  			Myobj.prototype.publicMethod = function (){
+  			    privateVariable ++;
+  			    return privateFn();
+  			}	
+	})();
+	
+	/*解析：
+				创建私有作用域，封装函数和对应方法。
+				在私有作用域定义了私有变量和私有方法。
+				定于构造函数和公有方法。
+	*/
+	</script>	
+	</body>
+</html>

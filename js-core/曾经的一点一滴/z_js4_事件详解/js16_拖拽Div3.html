@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>#div1{width:100px;height:100px;position: absolute;background: #e7c3c3}</style>
+    <script>
+        //onmousedown:存储距离
+        //onmousemove:根据距离.计算div新的位置
+        //onmouseup:提起鼠标，清空onmousemove和onmouseup事件
+        window.onload=function () {
+            var oDiv=document.getElementById('div1');
+
+            var disX=0;
+            var disY=0;
+
+            oDiv.onmousedown=function (ev) {
+                var oEvent=ev || event;
+                disX=oEvent.clientX-oDiv.offsetLeft;
+                disY=oEvent.clientY-oDiv.offsetTop;
+
+                document.onmousemove=function(ev){
+                    var oEvent=ev || event;
+                    oDiv.style.left=oEvent.clientX-disX+'px';
+                    oDiv.style.top=oEvent.clientY-disY+'px';
+                };
+
+                document.onmouseup=function () {
+                    document.onmousemove=document.onmouseup=null;
+                };
+
+                //在onmousedown时使用return false阻止BUG
+                return false;
+            };
+
+
+
+
+
+        };
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

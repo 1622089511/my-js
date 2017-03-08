@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+	/*从前面接受到类的信息，类有3个部分，
+	 * 类构造函数内的方法和属性，
+	 * 类构造函数外的方法和属性，
+	 * 类的原型上面的方法和属性。		
+	*/	
+	
+	//类式继承
+		//声明父类
+		function Father(){
+		    this.father = true;
+		    this.friend = ['a','b','c'];
+		}
+		//为父类原型添加方法
+		Father.prototype.getFather = function (){
+		    return this.father;
+		}
+		//声明子类
+		function Son(){
+		    this.sun = false;
+		}
+		//让子类继承父类。类不能直接访问这些属性和方法，所以通过原型将_proto_指向父类的原型对象
+		Son.prototype = new Father();
+		//为子类添加方法
+		Son.prototype.getSun = function (){
+		    return this.son;
+		}
+		
+		//实例化子类对象,成功使用子类和父类的方法和属性
+		var jack = new Son();
+		console.log( jack.getFather() );		//true
+		console.log( jack.getSun() );			//false
+		//检测
+		console.log(jack instanceof Father);	//true
+		console.log(Son instanceof Father);	//false  instanceof作用仅判断前面对象是否是后面类的实例
+		console.log(Son.prototype  instanceof Father); //true   子类的原型是父类的实例,所以实现了继承
+		
+		//问题1：父类中的属性如果是引用类型，子类的实例更改则会影响其他实例	
+		jack.friend.push('d');
+		var lili = new Son();
+		console.log(lili.friend);  //[a,b,c,d]; 影响了其他实例的属性
+		//问题2：创建父类时无法向父类传递参数，无法对父类初始化
+	</script>
+	</body>
+</html>

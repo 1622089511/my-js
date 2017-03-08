@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function creatPerson(name,sex)
+        {
+            var obj=new Object();
+            obj.name=name;
+            obj.sex=sex;
+
+            obj.showname=function () {
+                alert(this.name);
+            }
+            obj.showSex=function () {
+                alert(this,sex);
+            }
+            return obj;
+        }
+        var p1=creatPerson('blue','male');
+        var p2=creatPerson('red','famele');
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

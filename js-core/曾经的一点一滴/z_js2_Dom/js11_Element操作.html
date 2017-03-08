@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oTxt= document.getElementById('txt1');
+
+            //oTxt.value='121221';  //1.第一种element.method
+
+            //oTxt['value']='abc';    //2.第二种element['method']
+
+            oTxt.setAttribute('value','sadsadas');//3.第三种设置element.setAttribute(' method ',' value')
+
+            alert(oTxt.getAttribute('value'));//获取  element.getAttribute(' 名称');
+
+            oTxt.removeAttribute('value');//删除    element.Attribute
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+<input type="text" id="txt1" />
+</body>
+</html>

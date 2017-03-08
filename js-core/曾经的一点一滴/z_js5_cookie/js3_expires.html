@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+    var oDate=new Date();
+    oDate.setDate(oDate.getDate()+30);
+                                                        //使用expires设置cookie保存时间
+    document.cookie="user=blue;expires="+oDate;
+    document.cookie="password=123;expires="+oDate;
+
+    alert(document.cookie);
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width:100px; height:200px;background:#ccc;position:absolute;left:-100px;
+        }
+        #div1 span { position:absolute;width:20px;height:60px;line-hight:20px;text-align: center;left:100px; top:70px;background:yellowgreen;}
+    </style>
+    <script>
+        //运动框架
+        window.onload=function () {
+            var oDiv=document.getElementById('div1');
+            oDiv.onmouseover=function(){
+                startMove(10,0);
+            }
+            oDiv.onmouseout=function(){
+                startMove(-10,-100);
+            }
+        };
+
+        var timer=null;
+        function startMove(iSpeed,iTarget) {
+            var oDiv=document.getElementById('div1');
+            clearInterval(timer);
+            timer=setInterval(
+                    function () {
+                        if(oDiv.offsetLeft==iTarget){
+                            clearInterval(timer);
+                        }
+                        else{
+                            oDiv.style.left=oDiv.offsetLeft+iSpeed+'px';
+                        }
+                    },30);
+        };
+    </script>
+</head>
+<body>
+<div id="div1">
+    <span>分析到</span>
+</div>
+</body>
+</html>

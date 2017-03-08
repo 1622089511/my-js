@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+
+            //get() 不加参数是一组
+            //($('div').get(0).innerHTML);
+
+            //将jq转化为js
+           /* for(var i=0;i<$('li').get().length;i++)
+            {
+                $('li').get(i).style.background='red';
+            }
+            */
+
+            //jq也有length属性
+            for(var i=0;i<$('li').length;i++)
+            {
+                $('li')[i].style.background='red';
+            }
+
+
+        });
+    </script>
+</head>
+<body>
+<div>12321</div>
+<ul>
+    <li>1</li>
+    <li>23</li>
+    <li>345</li>
+</ul>
+</body>
+</html>

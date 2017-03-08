@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{width:100px;height:100px;background:red;padding:10px; border:10px solid red; margin:10px;}
+    </style>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script>
+        $(function () {
+
+            $('div').before( $('span') );    //span的前面是div
+
+            $('div').remove();  //删除节点
+
+
+
+        })
+    </script>
+</head>
+<body>
+
+<div>111</div>
+<span>222</span>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function creatPerson(name,sex)//构造函数
+        {
+
+            this.name=name;
+            this.sex=sex;
+
+            this.showName=function () {
+                alert(this.name);
+            }
+            this.showSex=function () {
+                alert(this,sex);
+            };
+        }
+        var p1=new creatPerson('blue','male');
+        var p2=new creatPerson('red','famele');
+        p1.showName();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

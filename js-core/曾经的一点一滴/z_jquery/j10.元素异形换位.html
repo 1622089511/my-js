@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+</head>
+<body>
+
+<p>p</p>
+<div>div</div>
+
+</body>
+<script>
+    $(function () {
+       //1.直接移动元素
+      //  $('div').insertAfter($('p'));  //将div元素移到p元素的后面
+       // $('p').appendTo($('div')); //后面
+        // 2.移动其他元素
+           // $('p').after($('div'));  将p元素移动到div元素前面
+          $('div').append($('p')); //将div元素移动到p前面
+
+        //区别：操作的元素不同，操作元素的移动位置不同
+    });
+
+
+
+</script>
+</html>

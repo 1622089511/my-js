@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="ajax.js"></script>
+    <script>
+        window.onload=function () {
+            var oInp=document.getElementsByTagName('input')[0];
+            oInp.onclick=function () {
+              ajax('1.txt',function (str) {
+                  alert(str);
+              });
+            };
+        };
+
+    </script>
+</head>
+<body>
+<input type="button"  value="读取" />
+</body>
+</html>

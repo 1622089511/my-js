@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		var person = {
+			name: 'jack',
+			age : 22
+		}
+		
+	//es5增加的防篡改api。使用后一旦防篡改，就无法撤销了
+	
+		Object.preventExtensions(person);  //通过Object.preventExtensons(obj)禁止扩展。
+	   person.sex = 'man';
+	   console.log(person.sex); //undefined，在严格模式下会出错。
+			
+		//密封对象
+		Object.seal(obj);       //不能扩展，不能删除，修改了configurable,不能使用defineProperty把数据修改为访问器;	
+		//冻结对象	
+		Object.freeze(obj);  //不能扩展，不能删除，不能修改。
+											
+		//检查方式为isExtensible(),isSealed(),isFrozen();
+	</script>	
+	</body>
+</html>

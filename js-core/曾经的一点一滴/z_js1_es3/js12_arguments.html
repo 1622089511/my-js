@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+            function show(){
+                //arguments----[12,5,88,1]
+                alert(arguments[1])
+            }
+           show(12,5,88,1);
+
+
+            function sum(){
+                var result=0;
+                for (var i=0;i<arguments.length;i++){
+                       result+= arguments[i];
+                }
+                alert(result);
+            };
+            sum(10,2,2,3,155,55);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

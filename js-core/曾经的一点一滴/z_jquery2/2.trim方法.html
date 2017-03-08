@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../z_jquery/jquery-3.1.0.min.js"></script>
+    <script>
+    window.onload=function () {
+        var oUl=document.getElementsByClassName('box')[0];
+
+        //$.trim(element.className)  干掉claaName中的空格
+        alert('('+$.trim(oUl.className)+')');
+    }
+
+    </script>
+</head>
+<body>
+<ul class="   box    ">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+</ul>
+</body>
+</html>

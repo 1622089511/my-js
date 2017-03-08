@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		function inheritObject(o){
+			//声明过渡函数对象
+		    function F(){}
+		    //过渡对象的原型继承父对象
+		    F.prototype  = o;
+		    //返回过渡对象的一个实例，该实例的原型继承了父对象
+		    return new F();
+		}
+	
+		//父类对象
+		var  book = {
+			name :  "js",
+			friend: ["css","html"]
+		}
+		
+		var newBook = inheritObject(book); 	
+		var otherBook = inheritObject(book);			
+		otherBook.name = "ajax";								
+		book.friend.push(otherBook.name);	
+		
+		console.log(otherBook.name);          			//ajax
+		console.log(otherBook.friend);					//css html ajax
+				
+		console.log(newBook.name);						 //js
+		console.log(newBook.friend);						//css,html ajax
+		
+		//问题依然是存在引用类型值被共用
+	    		
+		
+		
+		
+		
+	</script>	
+	</body>
+</html>

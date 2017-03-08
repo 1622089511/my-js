@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:100px;height:100px;position:absolute;background: red;}
+    </style>
+    <script type="text/javascript">
+         document.onmousemove=function (ev) {
+             var oEvent=ev || event;
+             var oDiv=document.getElementById('div1');
+            //先改变标签的left和top  必须先加绝对定位
+             oDiv.style.left=oEvent.clientX+'px';
+             oDiv.style.top=oEvent.clientY+'px';
+             console.log(oEvent);
+         }
+
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

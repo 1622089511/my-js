@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #ul1{background:red;}
+        #ul2{background:yellow;}
+    </style>
+    <script>
+        window.onload=function () {
+            var oBtn=document.getElementById('btn1');
+            var oUl1=document.getElementById('ul1');
+
+            oBtn.onclick=function ()
+            {
+                var aLi=oUl1.getElementsByTagName('li');
+                var arr=[];
+                var i=0;
+                //转化成数组
+                for(i=0;i<aLi.length;i++)
+                {
+                    arr[i]=aLi[i];
+                }
+                //数组排序
+                arr.sort(function (li1,li2) {
+                    return parseInt(li1.innerHTML)-parseInt(li2.innerHTML);
+                });
+                //重新插入到ul里
+                for(i=0;i<arr.length;i++)
+                {
+                    oUl1.appendChild(arr[i]);
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="排序li"/>
+<ul id="ul1">
+    <li>12</li>
+    <li>24</li>
+    <li>35</li>
+    <li>1</li>
+    <li>5</li>
+</ul>
+<ul id="ul2">ul2
+</ul>
+</body>
+</html>

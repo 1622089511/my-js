@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oBtn=document.getElementById('btn1');
+            var oTxt=document.getElementById('txt1');
+            var oTab=document.getElementById('tab1');
+
+            oBtn.onclick=function ()
+            {
+                var i=0;
+                for (i=0;i<oTab.tBodies[0].rows.length;i++)
+                {
+                    var sValueInTab=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+                    var sValueInTxt=oTxt.value.toLowerCase();
+                    var arr=sValueInTxt.split(' ');
+                    var bFound=false;
+
+                    for(j=0;j<arr.length;j++)
+                    {
+                        if(sValueInTab.search(arr[j])!=-1)
+                        {
+                            bFound=true;
+                            break;
+                        }
+                    }
+
+                    if(bFound)
+                    {
+                        oTab.tBodies[0].rows[i].style.background='#ccc';
+                    }
+                    else
+                    {
+                        oTab.tBodies[0].rows[i].style.background='';
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="text" id="txt1" />
+<input type="button" id="btn1" value="搜索" />
+<table id="tab1" border="1" width="400">
+    <thead>
+    <td>ID</td>
+    <td>姓名</td>
+    <td>操作</td>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>blue</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>leo</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>momo</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>aaa</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>bbb</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

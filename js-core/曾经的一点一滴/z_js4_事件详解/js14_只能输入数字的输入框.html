@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oTxt=document.getElementById('txt1');
+
+            oTxt.onkeydown=function (ev) {
+                var oEvent=ev || event;
+
+                //keycode:0 :48   9:57
+                //keyicode:0:96   9:105
+                //              backspace:8
+                if(oEvent.keyCode!=8 && oEvent.keyCode<48 || oEvent.keyCode>57) {
+                    return false;
+                }
+
+            };
+
+
+        };
+    </script>
+</head>
+<body>
+<input type="text" id="txt1" >
+</body>
+</html>

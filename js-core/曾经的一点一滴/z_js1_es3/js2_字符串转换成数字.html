@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typeof</title>
+</head>
+<script >
+    window.onload=function(){
+        var a='12sad31';
+        alert(parseInt(a));//只去字符前面的num数字
+
+        var b='asd';
+        alert(parseInt(b));//取得NaN(not a number)
+
+        var c='3.145';
+        alert(parseFloat(c));//取浮点型
+
+        var oTxt1=document.getElementById('txt1');
+        var oTxt2=document.getElementById('txt2');
+        var oBtn1=document.getElementById('btn1');
+        //用parseInt()将字符串转换成数字
+        oBtn1.onclick=function(){
+            alert(parseFloat(oTxt1.value)+parseFloat(oTxt2.value));
+        };
+    };
+</script>
+<body>
+<input id="txt1" type="text">
+<input id="txt2" type="text">
+<input id="btn1" type="button" value="求和">
+</body>
+</html>

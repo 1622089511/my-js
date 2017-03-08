@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main{
+            margin: 5px;
+            overflow: hidden;
+            /*          border: 1px solid #000;*/
+        }
+        .column{
+            border: 1px solid #000;
+        }
+        .left{
+            float: left;
+            width: 100%;
+        }
+        .right{
+            float: left;
+            width: 200px;
+            margin-left: -204px;
+        }
+        .real {
+            margin-right: 210px;
+            border: 1px solid blue;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="left column">
+        <div class="real">
+            content - 自适应宽度
+        </div>
+    </div>
+    <div class="right column">
+        aside - 定宽200px
+    </div>
+</div>
+</body>
+</html>

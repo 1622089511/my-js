@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        document.onclick=function (ev) {
+            //IE和chrome
+            //alert(event.clientX+','+event.clientY);//鼠标的X和Y
+
+            //FF
+            //alert(ev.clientX+','+ev.clientY);   ev在火狐下是object  mouseevent
+
+            /* if(ev){
+             alert(ev.clientX+','+ev.clientY);
+             }
+             else{
+             alert(event.clientX+','+event.clientY);
+             }*/
+
+            var oEvent= ev || event;
+            alert(oEvent.clientX+' , '+oEvent.clientY);
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

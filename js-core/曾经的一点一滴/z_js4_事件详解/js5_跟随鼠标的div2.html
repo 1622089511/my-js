@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:100px;height:100px;position:absolute;background: red;}
+    </style>
+    <script type="text/javascript">
+        document.onmousemove=function (ev) {
+            var oEvent=ev || event;
+            var oDiv=document.getElementById('div1');
+                                    //先改变标签的left和top  必须先加绝对定位
+            var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+            var scrollLeft=document.documentElement.scrollLeft || document.body.scrollLeft;
+                                     // 可视区位置 + 可视区外的距离
+            oDiv.style.left=oEvent.clientX+scrollLeft+'px';
+            oDiv.style.top=oEvent.clientY+scrollTop+'px';
+
+        }
+    </script>
+</head>
+<body style="width:2000px; height:2000px;">
+<div id="div1"></div>
+</body>
+</html>

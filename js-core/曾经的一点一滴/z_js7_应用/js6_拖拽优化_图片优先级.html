@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding:0;margin:0;}
+        #ul1 {width:990px; position:relative;margin:10px auto;}
+        #ul1 li{float:left;width:300px;height:550px;margin:10px;list-style: none;z-index:1;}
+    </style>
+    <script>
+        window.onload=function () {
+            var oUl=document.getElementById('ul1');
+            var aLi=oUl.getElementsByTagName('li');
+            var aPos=[];
+            var i=0;
+            var iMinZindex=2;
+            //拖拽运行循环
+            for(i=0;i<aLi.length;i++){
+                setDrag(aLi[i]);
+            }
+
+            //布局转换
+            for(i=0;i<aLi.length;i++){
+                aPos[i]={
+                    left:aLi[i].offsetLeft,
+                    top:aLi[i].offsetTop}
+            }
+            for(i=0;i<aLi.length;i++) {
+                aLi[i].style.left=aPos[i].left+'px';
+                aLi[i].style.top=aPos[i].top+'px';
+
+                aLi[i].style.position='absolute';
+                aLi[i].style.margin=0;
+            }
+            //拖拽
+            function setDrag(obj){
+                obj.onmousedown=function (ev) {
+                    obj.style.zIndex=iMinZindex++;
+                    var oEvent=ev||event;
+
+                    var disX=oEvent.clientX-obj.offsetLeft;
+                    var disY=oEvent.clientY-obj.offsetTop;
+
+                    document.onmousemove=function (ev) {
+                        var oEvent=ev||event;
+                        obj.style.left=oEvent.clientX-disX+'px';
+                        obj.style.top=oEvent.clientY-disY+'px';
+                    };
+
+                    document.onmouseup=function () {
+                        document.onmousemove=null;
+                        document.onmouseup=null;
+
+                    };
+                    return false;
+                }
+
+            }
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li><img src="Aatrox_0.jpg" alt=""></li>
+    <li><img src="Aatrox_1.jpg" alt=""></li>
+    <li><img src="Aatrox_2.jpg" alt=""></li>
+    <li><img src="Aatrox_2.jpg" alt=""></li>
+    <li><img src="Aatrox_1.jpg" alt=""></li>
+    <li><img src="Aatrox_3.jpg" alt=""></li>
+</ul>
+</body>
+</html>

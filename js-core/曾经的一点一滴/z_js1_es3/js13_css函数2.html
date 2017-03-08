@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:200px; height:200px;background:red;  }
+    </style>
+    <script type="text/javascript">
+        function  css(obj,attr,value){
+            if(arguments.length==2){
+                return obj.style[attr];
+            }
+            else if(arguments.length==3){
+                obj.style[attr]=value;
+            }
+        };
+        window.onload=function (){
+            var oBtn=document.getElementById('btn1');
+            var oDiv=document.getElementById('div1');
+
+            oBtn.onclick=function(){
+                css(oDiv , 'background' , 'green');
+                //alert(css(oDiv,'width') ); 只能在ie
+                if (oDiv.currentStyle){
+                    alert(oDiv.currentStyle.width);}  //在ie下
+                else {
+                    alert(getComputedStyle(oDiv, 'false').width); //在FF下
+                }
+            }
+
+        };
+
+    </script>
+</head>
+<body>
+</body>
+<input id="btn1" type="button"  value="样式"    />
+<div id="div1" ></div>
+</html>

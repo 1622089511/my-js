@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> new document </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>
+    <script type="text/javascript">
+
+            //改变每个tr颜色,因为tr在tobody里,所以在需要先获取table的lastChild：tbody
+
+    window.onload=function () {
+           vColor();
+       };
+    function vColor(){
+                var tbody = document.getElementById('table').lastChild;
+                var tr1=tbody.getElementsByTagName('tr');
+
+                for (var i=0;i<tr1.length;i++)
+                {
+                    tr1[i].onmouseover=function () {
+                        this.style.background='#ccc';
+                    }
+                    tr1[i].onmouseout=function () {
+                        this.style.background='';
+                    }
+                }
+            }
+    function deleteRow(obj) {
+        var tbody=document.getElementById('table').lastChild;
+        var tr=obj.parentNode.parentNode;
+        tbody.removeChild(tr);
+    }
+    function  addOne(obj){
+        var tbody=document.getElementById('table').lastChild;
+        var tr=document.createElement('tr');
+
+
+        var td = document.createElement("td");
+        td.innerHTML = "<input type='text'/>";
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.innerHTML = "<input type='text'/>";
+        tr.appendChild(td);
+
+        td = document.createElement("td");
+        td.innerHTML = "<a href='javascript:;' onclick='deleteRow(this)'>删除</a>";
+        tr.appendChild(td);
+
+        tbody.appendChild(tr);
+        vColor();
+    }
+
+
+
+
+
+    </script>
+</head>
+<body>
+<table border="1" width="50%" id="table">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>操作</th>
+    </tr>
+
+    <tr>
+        <td>xh001</td>
+        <td>王小明</td>
+        <td><a href="javascript:;" onclick="deleteRow(this)">删除</a></td>
+    </tr>
+
+    <tr>
+        <td>xh002</td>
+        <td>刘小芳</td>
+        <td><a href="javascript:;" onclick="deleteRow(this)">删除</a></td>
+    </tr>
+
+</table>
+<input type="button" value="添加一行" onclick="addOne()" />
+</body>
+</html>

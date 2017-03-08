@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		//一个对象的__proto__和prototype
+		var obj = {
+			name : "lee",
+			age: 20
+		}
+		console.log(obj);							//自身
+		console.log(obj.__proto__);				//Object{}
+		console.log(obj.prototype);			//undefined
+		
+		
+		//一个函数的__proto__和prototype
+		function Sub(){
+			this.class="Alice";
+		}
+		console.log(Sub.__proto__);			// function(){} 
+		console.log(Sub.prototype);			//Object{}
+		
+		/*
+		    总结：prototype(显示原型) __proto__(隐式原型)
+		1.每一个函数在创建后会拥有一个prototype属性,指向函数的原型对象。
+			(除了Function.prototype.bind创造出来的函数)
+			
+		2.每一个对象都有__proto__属性,它指向了	
+		
+		二者关系：__proto__指向创建这个对象的函数的prototype
+		
+		作用：prototype用来实现基于原型链的继承和属性的共享
+				  __proto__构成原型链，同样用于实现原型链的继承
+		
+			
+			
+		*/
+	</script>
+	</body>
+</html>

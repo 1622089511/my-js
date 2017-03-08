@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+			<div class="box"></div>
+			<div class="box"  id="box1"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		
+		<script type="text/javascript">
+			
+			var  aBox = document.getElementsByClassName('box');		
+			console.log(aBox);  // [object HTMLCollection]
+			
+			var  aBox2 = document.querySelectorAll('.box');		
+			console.log(aBox2);       //[object Nodelist]  //实际是HTMLCollection
+			
+			var aBox3 = document.getElementsByTagName('div');	
+			console.log(aBox3); 	//[object HTMLCollection]
+			
+			var  arr = Array.prototype.slice.call(aBox3,0);
+			console.log(arr);			//Array
+					
+		/*  querySelectorAll 属于 W3C 中的 Selectors API 规范 。而 getElementsBy 系列则属于 W3C 的 DOM 规范	
+		 *
+		 * 
+		 * 
+		 * 
+		 */
+		
+		
+		</script>
+	</body>
+</html>

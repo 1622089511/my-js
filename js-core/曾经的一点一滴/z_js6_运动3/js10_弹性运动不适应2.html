@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:100px;height:100px;background: red;position:absolute;}
+    </style>
+    <script>
+        window.onload=function () {
+            var oDiv=document.getElementById('div1');
+
+            oDiv.onmouseover=function () {
+                startMove(this,200);
+            }
+            oDiv.onmouseout=function () {
+                startMove(this,20);
+            }
+        }
+        var height=50;
+        var iSpeed=0;
+        function startMove(obj,iTarget) {
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function () {
+                iSpeed+=(iTarget-height)/5;
+                iSpeed*=0.7;
+
+                if(Math.abs(iSpeed)<1 && Math.abs(iTarget-height)<1 )
+                {
+                    clearInterval(obj.timer);
+                    obj.style.height=iTarget+'px';
+                }
+                else
+                {
+                    height+=iSpeed;
+                    if(height<0)//弹性运动，物体会过界，height值小于0，此时直接取0
+                    {
+                        height=0;
+                    }
+                    obj.style.height=height+'px';
+                }
+            },30)
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

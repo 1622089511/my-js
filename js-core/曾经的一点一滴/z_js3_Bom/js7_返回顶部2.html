@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn1{
+            position:fixed; bottom:0;right:0;
+        }
+        body{height:2000px;}
+    </style>
+    <script>
+        window.onload=function () {
+            var oBtn=document.getElementById('btn1');
+            var timer=null;
+            var bSys=true;  //
+
+            // 定义bSys   判断scroll是用户还是JS运动拖动窗口
+            window.onscroll=function () {
+                if(!bSys){                 //用户操作滚动
+                    clearInterval(timer);
+                }
+                    bSys=false;
+            };
+
+
+            oBtn.onclick=function () {
+                timer=setInterval(function(){
+                    var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+                    var iSpeed=Math.floor(-scrollTop/8);  //取速度
+
+                    if(scrollTop==0){
+                        clearInterval(timer);
+                    }
+                    bSys=true;  //系统滚动
+                    document.documentElement.scrollTop=document.body.scrollTop=scrollTop+iSpeed;
+                },30)
+            };
+        };
+    </script>
+</head>
+<body >
+asdsadsadsadsa<br/>
+asdasdasda<br/>
+sadsadsada<br/>
+asdsadsa<br/>
+dsasadsads<br/>
+adasdasdsa<br/>
+<input type="button" id="btn1" value="回到顶部" />
+</body>
+</html>

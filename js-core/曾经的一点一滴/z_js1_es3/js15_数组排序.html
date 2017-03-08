@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+            var arr=['float','zindex','xy','absolute','blue','leo' ];
+            alert(arr.sort());//仅能检测到字符串排序
+
+            var arr=[10,55,55,1,778,2,17,12,68,99];
+            arr.sort(function  compare(a,b) {
+                return  a-b;  //从小到大排序
+              //  return  b-a;  //从大到小排序
+            });
+
+            alert(arr);//循环得按首字符的大小排序
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

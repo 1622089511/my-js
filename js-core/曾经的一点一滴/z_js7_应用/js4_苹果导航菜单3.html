@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{margin:0;padding:0;}
+        #footer {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+        .txt1{width:100%;text-align: center;}
+
+    </style>
+    <script>
+        document.onmousemove=function (ev) {
+            var oEvent=ev || event;
+            var aImg=document.getElementsByTagName('img');
+            var aTxt=document.getElementsByTagName('input');
+            var i=0;
+            for(i=0;i<aImg.length;i++){
+                var oDiv=document.getElementById('footer');
+                var x=aImg[i].offsetLeft+aImg[i].offsetWidth/2;
+                var y=aImg[i].offsetTop+oDiv.offsetTop+aImg[i].offsetHeight/2;
+                aTxt[i].value="x:"+x+",y:"+y;
+
+                var a=x-oEvent.clientX;
+                var b=x-oEvent.clientY;
+
+                var dis=Math.sqrt(a*a+b*b);    //...装B函数Math.pow(a,2)
+                var scale=1-dis/300;
+
+                if (scale<0){
+                    scale=0.4;
+                }
+                aImg[i].width=scale*128;
+                aTxt[i].value=scale.toFixed(2); //toFixed()保留()位小数点
+
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div style="text-align:center; width: 100%;" >
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+</div>
+
+
+<div id="footer">
+    <img src="Aatrox_0.jpg" width="64"/>
+    <img src="Aatrox_1.jpg" width="64"/>
+    <img src="Aatrox_2.jpg" width="64"/>
+    <img src="Aatrox_3.jpg" width="64"/>
+    <img src="Aatrox_0.jpg" width="64"/>
+</div>
+</body>
+</html>

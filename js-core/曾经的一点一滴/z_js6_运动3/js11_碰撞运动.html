@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:100px;height:100px;background: red;position:absolute;}
+    </style>
+    <script>
+        var iSpeedX=5;
+        var iSpeedY=8;
+        function  startMove() {
+            setInterval(function () {
+                var oDiv=document.getElementById('div1');
+                var l=oDiv.offsetLeft+iSpeedX;
+                var t=oDiv.offsetTop+iSpeedY;
+
+
+                oDiv.style.left=l+'px';
+                oDiv.style.top=t+'px';
+
+
+
+            },30)
+        }
+        window.onload(startMove());
+        
+        
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

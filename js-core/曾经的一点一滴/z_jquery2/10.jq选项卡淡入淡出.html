@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 div{width:200px;height:200px;background:#ccc;border:1px solid rosybrown;display:none;position:absolute;}\n
+
+        .active{background: yellowgreen;}
+    </style>
+    <script type="text/javascript" src="../z_jquery/jquery-3.1.0.min.js"></script>
+    <script>
+        $(function () {
+            $('#div1').find('input').click(function () {
+                $('#div1').find('input').attr('class',' ');
+                $('#div1').find('div').fadeOut();
+
+                $(this).attr('class','active');
+                $('#div1').find('div').eq($(this).index()).fadeIn();
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+<div id="div1">
+    <input  class="active" type="button" value="1" />
+    <input type="button" value="2" />
+    <input type="button" value="3" />
+    <div style="display:block">1111</div>
+    <div>2222</div>
+    <div>3333</div>
+</div>
+</body>
+</html>

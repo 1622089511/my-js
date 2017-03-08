@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #img1{ opacity:0.3;  }
+        /*filter:alpha(opcaity)是ie透明度
+          opacity:0.3是火狐和谷歌浏览器透明度  */
+    </style>
+    <script>
+        window.onload=function () {
+            var oImg=document.getElementById('img1');
+            oImg.onmouseover=function () {
+                    startMove(100);
+            }
+            oImg.onmouseout=function () {
+                startMove(30);
+            }
+        }
+
+        var alpha=30;
+        var timer=null;
+        function startMove(iTarget){
+            var oImg=document.getElementById('img1');
+            clearInterval(timer);
+            timer=setInterval(function () {
+                var iSpeed=0;
+                if(alpha<iTarget)
+                {
+                    iSpeed=10;
+                }
+                else{
+                    iSpeed=-10;
+                }
+
+                if(alpha==iTarget){
+                    clearInterval(timer);
+                }
+                else{
+                    alpha+=iSpeed;
+                    oImg.style.filter='alpha(opacity:'+alpha+')';
+                    oImg.style.opacity=alpha/100;
+                }
+            },100)
+        }
+    </script>
+</head>
+<body>
+<img id="img1" src="img1.jpg" alt="sss">
+</body>
+</html>

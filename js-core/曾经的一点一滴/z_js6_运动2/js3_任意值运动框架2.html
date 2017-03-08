@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:100px;
+            height:50px;
+            background: darkorchid;
+            margin-top:50px;
+            border: 1px solid green;
+        }
+    </style>
+    <script type="text/javascript">
+        //多物体运动框架
+        var timer=null;
+        function  startMove(obj,iTarget){
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function () {
+                var iSpeed=(iTarget-obj.offsetWidth)/6;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed) :Math.floor(iSpeed);
+
+                if (obj.offsetWidth==iTarget){
+                    clearInterval(timer);
+                }
+                else
+                {
+                    obj.style.width=obj.offsetWidth+iSpeed+'px'
+                }
+            },30)
+        }
+
+        window.onload=function () {
+            var aDiv = document.getElementsByTagName('div');
+            var i = 0;
+            for (i = 0; i < aDiv.length; i++) {
+                aDiv[i].onmousemove = function () {
+                    startMove(this,500);
+                };
+                aDiv[i].onmouseout = function () {
+                    startMove(this,100);
+                };
+            }
+        }
+    </script>
+</head>
+<body>
+<div ></div>
+<div ></div>
+<div ></div>
+</body>
+</html>

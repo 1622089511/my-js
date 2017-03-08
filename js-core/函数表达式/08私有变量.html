@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+/*		
+		function add(s1,s2){
+		  			return sum = s1+s2;
+		  }
+		add(1,1);
+		console.log( add(1,2) );
+		
+		这里的私有变量是s1,s2和sum，在函数内部可以访问，外部作用域链不能。
+*/		
+		function myObj(){
+		    //私有变量和私有方法
+		    var praviteVariable = 10;
+		    function privateFunction(){
+		        return false;
+		    }
+		    //特权方法：有权访问私有变量和私有函数的方法
+		    	//作为闭包时，可以访问函数内部的所有变量和方法
+		    this.publicMethod =function (){
+		        praviteVariable++;
+		        return privateFunction();
+				return praviteVariable;       
+		    }
+		}
+		//实例化的对象只有通过特权方法才能访问私有变量和私有函数
+		/*var 	o1  =  new myObj();
+		var  m1  = o1.publicMethod();
+		console.log(m1);
+		*/
+		
+		function Person(name){
+			//特权方法getName(),setName(),有权访问私有变量name
+			this.getName = function (){
+			  	return name;  
+			};
+			this.setName = function (value){
+			     name = value;
+			}
+		}
+		
+		var lili = new Person("lili");
+		lili.getName();
+		lili.setName('july-lili');
+		console.log ( lili.getName() );
+	</script>	
+	</body>
+</html>

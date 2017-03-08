@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:100px;height: 100px; background: red;position:absolute;right:0;}
+    </style>
+    <script>
+        window.onscroll=function () {
+            var oDiv=document.getElementById('div1');
+            var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+
+           var t=scrollTop+(document.documentElement.clientHeight-oDiv.offsetHeight)/2;
+           startMove(parseInt(t));
+        };
+
+        var timer=null;
+        function startMove(iTarget) {
+            var oDiv=document.getElementById('div1');
+            clearInterval(timer);//在每次执行前先关掉上一次定时器
+            timer=setInterval(function () {
+                var iSpeed=(iTarget-oDiv.offsetTop)/8;
+                iSpeed=iSpeed>0 ? Math.ceil(iSpeed):Math.floor(iSpeed);//优化if else;
+                iSpeed=Math.ceil(iSpeed); //每30毫秒运行一次，每次运动的速度向上取整
+                if(oDiv.offsetTop == iTarget){ //判断是否到达终点
+                    clearInterval(timer);
+                }
+                else{//已经到达终点了，所以结束了选择
+                    oDiv.style.top=oDiv.offsetTop+iSpeed+'px';
+                }
+            },30);
+        };
+    </script>
+</head>
+<body style="height:2000px">
+<input id="txt1" type="text"/>
+<div id="div1"></div>
+</body>
+</html>

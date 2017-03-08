@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width:100px;
+            height:100px;
+            background: red;
+        }
+
+    </style>
+    <script type="text/javascript" src="move.js"></script>
+    <script>
+    window.onload=function () {
+        var oDiv=document.getElementById('div1');
+        var oBtn=document.getElementById('btn1');
+
+        oBtn.onclick=function () {
+            startMove(oDiv,'width',300,function () {
+                document.title='运动结束';//链式运动
+                startMove(oDiv,'height',300)
+            });
+        }
+
+
+
+
+    }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<input type="button" id="btn1" value="开始运动" />
+</body>
+</html>

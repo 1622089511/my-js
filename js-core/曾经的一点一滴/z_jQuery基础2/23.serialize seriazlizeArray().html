@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据串联化</title>
+    <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+          console.log(  $('form').serialize() );  //串联化字符串
+            console.log (  $('form').serializeArray() ); //串联化数组
+        })
+
+    </script>
+</head>
+<body>
+<form action="">
+    <input type="text" name="a" value="1" />
+    <input type="text" name="b" value="2" />
+    <input type="text" name="c" value="3" />
+</form>
+</body>
+</html>

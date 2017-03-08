@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var oDiv=null;
+        var disX=0;
+        var disY=0;
+        window.onload=function ()
+        {
+            oDiv=document.getElementById('div1');
+            oDiv.onmousedown=fnDown;
+        };
+
+        function fnDown (ev)
+        {
+            var oEvent=ev||event;
+            disX=oEvent.clientX-oDiv.offsetLeft;
+            disY=oEvent.clientY-oDiv.offsetTop;
+
+            document.onmousemove=fnMove;
+            document.onmouseup=fnUp;
+
+        }
+        function  fnMove(ev) {
+            var oEvent=ev || event;
+            oDiv.style.left=oEvent.clientX-disX+'px';
+            oDiv.style.top=oEvent.clientY-disY+'px';
+        }
+        function  fnUp() {
+            document.onmouseup=document.onmousemove=null;
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="div1" style="width:100px; height: 100px;background: red;position: absolute;"></div>
+</body>
+</html>

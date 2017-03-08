@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{width:200px;height: 200px;border:1px solid red;position:relative;}
+        .item{width: 150px;height: 150px;background: yellowgreen;float:left; *display:inline;margin-left: 50px;}
+        .box span{
+            width: 50px;
+            height: 50px;
+            background: greenyellow;
+            position: absolute;
+            right: -10px;
+            top:-10px;
+        }
+
+    </style>
+    <!--  绝对定位和浮动是同级的话，定位会消失
+            解决方法：禁止处于同级，用其他元素包定位元素
+       -->
+</head>
+<body>
+<div class="box">
+    <div class="item"></div>
+    <p>
+        <span></span>
+    </p>
+</div>
+</body>
+</html>

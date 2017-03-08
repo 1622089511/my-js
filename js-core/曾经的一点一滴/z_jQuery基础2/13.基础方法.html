@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{width:100px;height:100px;background: red;}
+        #div2{width:100px;height:100px;background: greenyellow;}
+    </style>
+    <script src="jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+
+            $('#div1').hover(function () {
+                //$(this).css('display','none');
+                //$('#div2').hide();
+               // $('#div2').fadeOut(2000,0.5); //默认400毫秒
+                $('#div2').slideUp(2000);
+            },function () {
+                //$(this).css('display','block');
+                //$('#div2').show();
+                //$('#div2').fadeIn(1000);
+                $('#div2').slideDown(2000);
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

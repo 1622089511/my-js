@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap{width:404px;}
+        .left{ float:left;}
+        .right{float:right;width:400px;}
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="left"></div>
+    <span></span> <span></span><span></span><span></span>
+    <!-- IE6两个浮动元素内有内联或者注释并且和父级元素相差不超过3px
+            解决方法:
+            1:两个浮动元素中间避免出现内联元素或者注释
+            2:与父级元素相差大于3px
+    -->
+    <div class="right">&darr：多出来的猪</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    window.onload=function () {
+        var oImg=new Image();
+        oImg.src='Blitzcrank_Splash_7.jpg';
+        /*onload,加载完成后显示图片
+          onerror,加载失败时，进行其它处理（跳过，显示信息）;
+        预判加载:自动加载下一站
+        延迟加载：先加载html,然后再加载页面图片
+       */
+
+    }
+    </script>
+</head>
+<body>
+<img src="Blitzcrank_Splash_6.jpg" alt="asd"
+     onmouseover="this.src='Blitzcrank_Splash_7.jpg ';"
+     onmouseout  ="this.src='Blitzcrank_Splash_11.jpg ' ;"/>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //对象不同
+        function CreatPerson(name,sex)//构造函数
+        {
+            this.name=name;
+            this.sex=sex;
+        }
+        //方法相同  一类事物.prototype.方法
+        CreatPerson.prototype.showname=function () {
+            alert(this.name);
+        };
+        CreatPerson.prototype.showSex=function () {
+            alert(this.sex);
+        };
+
+        //传参调用
+        var p1=new CreatPerson('blue','男');
+        var p2=new CreatPerson('red','famele');
+
+        p1.showname();
+        p1.showSex();
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

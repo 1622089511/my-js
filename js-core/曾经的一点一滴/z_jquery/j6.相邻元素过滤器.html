@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+</head>
+<body>
+<div>
+    <h3>11111</h3>
+    <h3>22222</h3>
+    <h3>1133111</h3>
+    <h3>1114411</h3>
+    <h3>1155111</h3>
+</div>
+</body>
+<script>
+    $(function () {
+        $('div').find('h3').css('background','red');//选择div下所有h3标签
+        $('div').find('h3').eq(2).css('background','yellow');//选择div下第3个h3标签
+
+
+    });
+</script>
+</html>

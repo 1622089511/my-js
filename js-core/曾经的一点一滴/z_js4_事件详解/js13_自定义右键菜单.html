@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0;}
+        #ul1{
+            width:350px;background-color:#ccc; border:1px solid red;position:absolute;display:none;
+        }
+        li{ float:left;  margin:20px;}
+    </style>
+    <script>
+    document.oncontextmenu=function (ev) {
+        var oUl=document.getElementById('ul1');
+        var oEvent=ev||event;
+        var scrollTop=document.documentElement.scrollTop ||document.body.scrollTop;
+        var scrollLeft=document.documentElement.scrollLeft ||document.body.scrollLeft;
+        oUl.style.display='block';
+
+        oUl.style.left=oEvent.clientX+scrollLeft+'px';
+        oUl.style.top=oEvent.clientY+scrollTop+'px';
+        return false;
+    };
+
+        document.onclick=function () {
+            var oUl=document.getElementById('ul1');
+            oUl.style.display='none';
+        };
+    </script>
+</head>
+<body style="width:1000px; height: 1000px;">
+<ul id="ul1">
+    <li>注册</li>
+    <li>登录</li>
+    <li>注销</li>
+    <li>首页</li>
+</ul>
+</body>
+</html>

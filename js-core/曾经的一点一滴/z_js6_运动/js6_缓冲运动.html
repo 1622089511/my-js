@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{height:100px;width:100px;background:#ccc;position:absolute;left:0;}
+    </style>
+    <script>
+
+            var timer=null;
+            function startMove(iTarget) {
+                var oDiv=document.getElementById('div1');
+                clearInterval(timer);//在每次执行前先关掉上一次定时器
+                timer=setInterval(function () {
+                    var iSpeed=(iTarget-oDiv.offsetLeft)/10;
+
+                    if(oDiv.offsetLeft >= iTarget){ //判断是否到达终点
+                        clearInterval(timer);
+                    }
+                    else{//已经到达终点了，所以结束了选择
+                        oDiv.style.left=oDiv.offsetLeft+iSpeed+'px';
+                    }
+                },30);
+            };
+
+
+
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="开始运动" onclick="startMove(300)"/>
+<div id="div1"></div>
+<span style="width:1px;height:500px;background-color:#ccc;left:300px; position:absolute;"></span>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		//声明基对象
+		
+		var Book = {
+			name : "js",
+			friend :  ["css","html"]
+		}
+		
+		function inherit(o){
+		    function F(){}
+		    F.prototype = o;
+		    return new F();
+		}
+		
+		function createBook(obj){
+		    var o = inheritObject(obj);
+		    o.getName = function (){
+		        console.log(name);
+		    }
+		    return o;
+		}
+		
+		
+		
+		
+		
+		
+	</script>	
+	</body>
+</html>

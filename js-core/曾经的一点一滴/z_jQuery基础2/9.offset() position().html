@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        #div1{width:200px;height:200px;background:red;overflow:hidden;margin:20px;}
+        #div2{width:100px;height:100px;margin:30px;background:yellowgreen;}
+    </style>
+    <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+    <script>
+        $(function () {
+         //  alert($('#div2').offset().left );   //offset().left  获取到屏幕左距离
+         //   alert($('#div2').offset().top );  //offset().top  获取到屏幕顶部距离
+
+            //alert($('#div2').position().left );   //position().left  到有定位的父级的left值
+            //alert($('#div2').position().top );  //position().top   到有定位的父级的top值
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+</body>
+</html>
