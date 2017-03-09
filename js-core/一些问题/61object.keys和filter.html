@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	<script type="text/javascript">
+		//数组配合filter
+		
+		//输入 {a : 1,b:2,c:3,d:4},返回["c","d"]
+		var data = {a : 1,b:2,c:3,d:4};
+		//objeck.keys[obj]数组形式返回键名。
+		var dataChange = Object.keys(data).filter(function (x){
+			return data[x]<3;
+		});
+		console.log(dataChange);
+		
+	</script>
+	</body>
+</html>

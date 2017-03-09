@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+	//先看单继承
+		var extend = function (target,source){
+		    //遍历源对象的属性
+		    for(var property in source){
+		    	//复制source的属性给target
+		    	target[property] = source[property];
+		    }//返回目标对象
+		    return target;
+		}
+	//测试用例:
+	var book = {
+		name : 'js',
+		version : [1,2,3]
+	}
+	var  book2 = {
+		name: 'java',
+		title : 'server'
+	}
+/*	
+	extend(book2,book);
+	console.log(book2);					//为book2添加了version
+	console.log(book2.name);			//js
+	console.log(book2.version);		//[1,2,3]
+		
+	//复制source的属性给target
+	book2.version.push(4);
+	console.log(book.version);			//[1,2,3,4] 影响了原始属性
+*/
+	//多继承
+	Object.prototype.mix = function (){
+		var i = 0,											//从第一个参数起为被继承对象
+			length=arguments.length,			//获取参数长度
+			arg;												//缓存参数对象
+		for(;i<length;i++){
+			//缓存当前对象
+			arg = arguments[i];
+			//遍历被继承对象中的属性
+			for(var property in arg){
+				//将被继承对象中的属性复制到目标对象中
+				this[property] = arg[property];
+			}	
+		}		
+	}
+	//测试
+	var book3 = {name:'data'};
+	book3.mix(book2,book);		 //这样继承会按照继承对象顺序覆盖掉原始属性
+	console.log(book3);  				//{name:"js",title:"server",version:[1,2,3]}
+	book3.version.push(4);
+	console.log(book.version);	   //[1,2,3,4] 引用类型数据还是会影响
+	
+	
+	//总结：因为js是单线程，多继承依赖于原型链，所以多继承有缺陷，是一个浅复制。
+	</script>
+	</body>
+</html>

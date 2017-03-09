@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//多态：一个函数的多种调用方式,一般实现是接口，抽象类，重载和重写。
+			//JS没有接口和抽象类和重载，只能仿造和重写继承的方法，一般使用arguments或其他形式的判断
+			/*		
+					//arugments和switch case
+					function add(){
+					    var arg = arguments.length;
+					    switch(arg){
+					    	case 0 :
+					    		return 0;
+					    	case 1:
+					    		alert(10);
+					    	case 2:
+					    		return 10 + arguments[0] +arguments[1];
+					    }
+					}
+					 console.log( add() );			//0
+					 add("alert");						//alert(10)
+					 console.log(add(10,15));	//35
+			*/
+			//更加易读的类形式
+
+			function Add() {
+				function zero() {
+					return 10;
+				}
+				//一个参数
+				function one(num) {
+					return 10 + num;
+				}
+				//两个参数算法
+				function two(num1, num2) {
+					return num1 + num2;
+				}
+				this.add = function() {
+					var arg = arguments,
+						  len = arg.length;
+					switch(len) {
+						case 0:
+							return zero();
+						case 1:
+							return one(arg[0]);
+						case 2:
+							return two(arg[0], arg[1]);
+					}
+				}
+			}
+			var variable = new Add();
+
+			console.log(variable.add());
+			console.log(variable.add(10));
+			console.log( variable.add(0.1,0.2).toFixed(1)) //0.3 
+		</script>
+	</body>
+
+</html>

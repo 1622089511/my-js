@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+/*		
+		//单对象浅复制
+		Object.prototype.singleExtend=function (target,souce){	
+		    for(var  property  in  souce){						//遍历源对象键名
+		    	target[property] = souce[property]; 		//复制源对象键名属性
+		    }
+		    return target;												
+		}
+		var  o = {
+			name : 'lee',
+			age : '23'
+		}	
+		var  o1 = {
+			job: "ng",
+			sex: "male"
+		}
+		o1.singleExtend(o1,o);
+		console.log(o1);		
+*/		
+		//多对象复制
+		
+		Object.prototype.mExtend = function (){		
+		 		  															//从第一个参数开始复制				
+		    											   					//缓存参数
+		    for(var i=0 ; i<arguments.length; i++){
+		    	var arg = arguments[i];						//缓存当前对象
+		    	for(var property in arg){
+		    			this[property]	=  arg[property]
+		    	}
+		    }
+		    return this;
+		}
+		
+		var  o = {
+			name : 'lee',
+			age : '23'
+		}	
+		var  o1 = {
+			job: "ng",
+			sex: "male"
+		}
+		var o2 = {
+			friends : ['o','o1']
+		}
+		o2.mExtend(o,o1);
+		console.log(o2);						//
+		
+		
+		
+		
+	</script>	
+	</body>
+</html>
