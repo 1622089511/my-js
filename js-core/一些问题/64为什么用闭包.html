@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height:50px;
+				overflow: hidden;
+				border:1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	<script type="text/javascript">	
+		var nodes  = document.getElementsByTagName('div');
+	/*		for(var i = 0; i<nodes.length;i++){
+			nodes[i].onclick=function (){
+			    alert(i);				//这是弹出的全部都是5
+			}
+		}		//因为onclick是异步触发,所以发生时,for循环早已结束,此时i已经是5
+	*/	
+		//
+		for(var i=0; i<nodes.length;i++){
+			(function (i){
+			    nodes[i].onclick=function (){
+			        alert(i);
+			    }
+			})(i)
+		}
+		
+//封装变量
+		var  mult = function (){
+		    var  a = 1;
+		    for(var i=0 , len=arguments.length; i < len;i++){
+		    	 a = a*arguments[i]
+		    }
+		    return a;
+		}
+//		alert(mult(1,2,3,4)); //封装变量进行乘积操作
+		
+//模仿块级作用域
+	function block(){
+	    var res = [7,8,9];
+	    for(var i =0;i<res.length;i++){
+	    	console.log(res[i]);	
+	    }
+	    console.log(i); 
+	}			
+	block();		//3
+	
+	(function (){
+	    //块级作用域
+	})();
+	
+//创建私有变量和私有函数，用特权方法访问，返回私有属性和方法	
+			
+	</script>	
+	</body>
+</html>

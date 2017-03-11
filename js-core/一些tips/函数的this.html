@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	<script type="text/javascript">
+		//函数在定义时产生作用域链，调用时使用this;
+			
+		//1.全局上下文: 浏览器this指window
+			console.log(this.document === document);	//true
+		
+		//2.函数上下文: this直接调用
+			function alert(){
+				return this;
+			}
+		   console.log(alert());	//window
+		//3.对象方法
+			var obj = {
+				name : 'lee',
+				sayName :function (){
+				    return this.name;
+				}
+			}
+			console.log( obj.sayName() );		 //lee  			           => obj
+			//sayName(); 		       					    //not defined报错 => window
+			
+		
+			var obj2 = {
+				 name : 'lee',
+				 eat : eating,
+				 jack : {
+				 	name: 'dudu',
+				 	age : 23,
+				 	eat : eating
+				 }
+			}
+			function eating(){
+			    return this.name;
+			}
+			console.log( obj2.eat() );			//lee 	   就近
+			console.log( obj2.jack.eat())		//dudu   就近
+			
+		//4.构造函数的this,绑定实例化的对象
+		//5.call和apply
+				function eat(arg){
+				    return this.likes +"&" + arg ;
+				}
+				var shiba = {likes : 'bones'}
+				
+				console.log( eat.call(shiba,'meat') );	//bones&meat		
+		//6.bind
+				var erha = {likes : "paly"}
+				var erhaLike = eat.bind(erha);	//返回函数this指向绑定对象
+				console.log( erhaLike( ) ); 
+		//7.dom操作 指向被点击的元素
+		//8.es6箭头函数
+				/*
+				箭头函数就是个简写形式的函数表达式，并且它拥有词法作用域的this值（即不会新产生自己作用域下的this, arguments, super 和 new.target 等对象）。
+				此外，箭头函数总是匿名的。箭头函数不仅仅是让代码变得简洁，函数中 this 总是绑定总是指向对象自身。
+				*/
+		/*	let  arrow1 = () =>{}  //空的箭头函数,返回undefined
+			(()=>"footer")();   	//返回footer		
+		*/
+			
+		
+		
+		
+	</script>	
+	</body>
+</html>

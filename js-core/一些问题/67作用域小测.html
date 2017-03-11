@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function o() {
+				function getNum() { alert(1); };	
+				abc = 3;		
+			}
+			o();							//这里要执行下
+			console.log(abc);   //3,作用域挂到了全局下
+		//---------------------------------------------------
+		(function (){
+			 var a = b = 5; 
+		})();
+		console.log(a);	 //访问不到a,因为是块级作用域,只能在内部使用，b=5
+		//----------------------------------------------------	
+		function o(){
+			this.abc= 3;			
+			return this;				//要么return this,用o().abc调用  要么实例化o()这个构造器,new o().abc
+		}
+		console.log(o().abc); 
+		</script>
+	</body>
+
+</html>

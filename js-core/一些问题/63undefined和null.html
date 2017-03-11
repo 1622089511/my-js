@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//逻辑上几乎一样
+			if(!undefined)
+				console.log('undefined is false'); 	     	// undefined is false
+
+			if(!null)
+				console.log('null is false');                 		// null is false
+
+			console.log( undefined == null )         		// true
+			
+		
+			//null代表一个无的对象,转化数值是0
+			console.log(5 + null);									//5
+			console.log(Number(null));						//0
+			console.log(typeof null +NaN);					//objectNaN
+			
+			
+			//undefined代表一个无的原始值，转化为数值是"NAN"
+			console.log(5+undefined);				    	//NaN
+			console.log(Number(undefined));		    	//NaN
+			console.log(typeof undefined + NaN);	    //undefinedNaN
+			
+			/*实际用法
+			null表示"没有对象"，即该处不应该有值
+				作为函数的参数，表示该函数的参数不是对象
+				作为对象原型链的终点Object.getPrototypeOf(Object.prototype)
+			*/
+			
+			/*
+			undefined表示"缺少值"，就是此处应该有一个值
+				变量被声明了，但没有赋值时，就等于undefined。
+			 	调用函数时，应该提供的参数没有提供，该参数等于undefined。
+			 	对象没有赋值的属性，该属性的值为undefined。
+			 	函数没有返回值时，默认返回undefined。
+			*/
+		</script>
+	</body>
+</html>

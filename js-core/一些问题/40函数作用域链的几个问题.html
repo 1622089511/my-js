@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		//1.对象函数访问当前函数
+			
+			var o = {
+				name : 'lee',
+				getName: function (){
+					console.log(o.getName());
+				}
+			}
+		
+		//o.getName(); //报错,内部不管是getName,getName(),o.getName()都会报错
+		
+		
+		//2.非对象内部	
+			var o2 =function (){
+			    console.log(o2);
+			}
+		
+			o2();//内部是o2,打印出当前函数。是o2()想获取返回值，则报错。
+	</script>	
+	</body>
+</html>

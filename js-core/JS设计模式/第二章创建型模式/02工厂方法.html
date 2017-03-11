@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+		
+		.container{
+			width:300px;
+			height:300px;
+			background: #ccc;
+		}
+		
+		
+	</style>
+	</head>
+	<body>
+	<div class="container"></div>
+	<script type="text/javascript">
+		
+		//安全模式创造的工厂类	
+		var Factory = function (type,content){
+		    if(this instanceof Factory){
+		    	var  s = new this[type](content);
+		    	return s;
+		    }else{
+		    	return new Factory(type,content);
+		    }  
+		}
+		
+		Factory.prototype={
+			Ui : function (content){
+			    this.content = content;
+			    (function (content){
+			        var oUi = document.getElementById('Ui');
+			        	  oUi.innerHTML = content;
+			        	  oUi.style.border = '1px solid red'
+			        	  document.querySelector('.container').appendChild(oUi);	
+			    })(content);
+			}
+		}
+		
+		//数据
+		var data = [
+				{type:'Java',content:'Java哪家强'},
+				{type:'Javascript',content:'Javascript哪家强'},
+				{type:'Ui',content:'Ui哪家强'},
+				{type:'php',content:'php哪家强'}
+		];
+		
+		
+	</script>	
+	</body>
+</html>

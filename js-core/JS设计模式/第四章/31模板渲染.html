@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		//模板渲染方法
+		A.formateString = function (str,data){
+		    return str.replace(/\{#(\w+)#\}/g,function (match,key){
+		        return typeof data[key] === undefined ? '' : data[key];
+		    })
+		}
+		
+		
+		
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		//需求：regist-login模块
+		//简单工厂
+		function Factory(name,job,time){
+		    var o ={};
+		    o.name = name;
+		    o.job = job;
+		    o,time = time;
+		    o.interview = function (){      
+		    }
+		    return o;
+		}
+		var  lee = Factory('lee','no',3);
+		console.log(lee);
+		
+		//适抽象共同点,如果不同点可以向下面这种方式抽象
+		
+		
+		function Login(type,text){		
+			var o = new Object();
+			o.content = text;
+			o.show = function (){    
+			   //提示方法  
+			};
+			//注册
+			if(type == "regist"){
+				
+			}
+			//登录
+			if(type == "login"){
+			
+			}
+			//提示框
+			if(type == "prompt"){
+				
+			}	
+			return o;
+			
+		}
+		
+		//谈谈简单工厂模式与类的异同点
+		//工厂需要在构造函数内部创建一个对象并返回,实例化不需要加new
+		//类需要加new实例化。
+		//都可以通过this绑定属性和方法.
+		
+		
+	</script>	
+	</body>
+</html>

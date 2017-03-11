@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width:150px;
+				height:150px;
+				background: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">1</div>
+	<script type="text/javascript">
+		//常见的简单单例
+		
+		var singleTon ={
+		    	getEle :  function(ele){
+		    	    return document.getElementById(ele);
+		    	},
+		    	setCss : function (ele,key,value){
+		    	    singleTon.getEle(ele).style[key] = value;		//单例模式用其他方法,要加当前对象引用
+		    	    return this;
+		    	}   	
+		}
+		
+		singleTon.setCss('box',"color","red").setCss('box',"fontSize","200%");
+		
+		
+		//无法修改的静态变量
+		
+		var cont = (function (){
+		    	var conf = {
+		    		max_mum : 100,
+		    		min_mun : 1,
+		    		count :1000
+		    	};
+		    	return {
+		    		get: function (name){
+		    		    return conf[name] ? conf[name] : null; 
+		    		}
+		    	}
+		})();
+		var  variable = cont.get('count');
+		console.log(  variable);
+		
+		//惰性单例
+		
+		
+	</script>
+	</body>
+</html>

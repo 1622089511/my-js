@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		function fun(n,o) {
+  			console.log(o)
+ 			 return {
+    				fun:function(m){
+    			  	return fun(m,n);
+    				}
+  				};
+			}
+/*
+var a = fun(0);  a.fun(1);  a.fun(2);  a.fun(3);//undefined,?,?,?
+var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?
+var c = fun(0).fun(1);  c.fun(2);  c.fun(3);//undefined,?,?,?
+*/
+		
+		var a = fun(0).fun(1);
+		var  person = function() {
+				//变量作用域为函数内部，外部无法访问    
+				var name = "default";
+				return {
+					getName: function() {
+						return name;
+					},
+					setName: function(newName) {
+						name = newName;
+					}
+				}
+			}();
+
+			console.log(person.name); //直接访问，结果为undefined    
+			console.log(person.getName());
+			person.setName("abruzzi");
+			console.log(person.getName());
+			
+		var foo = 1;
+		var obj = {
+		    foo: 2,
+		    bar: function() {
+		        console.log(this.foo);
+		    }
+		};
+		console.log(obj.foo);
+		
+	</script>	
+	</body>
+</html>

@@ -25,11 +25,8 @@
 		o1.singleExtend(o1,o);
 		console.log(o1);		
 */		
-		//多对象复制
-		
+		//多对象浅复制	
 		Object.prototype.mExtend = function (){		
-		 		  															//从第一个参数开始复制				
-		    											   					//缓存参数
 		    for(var i=0 ; i<arguments.length; i++){
 		    	var arg = arguments[i];						//缓存当前对象
 		    	for(var property in arg){
@@ -51,11 +48,45 @@
 			friends : ['o','o1']
 		}
 		o2.mExtend(o,o1);
-		console.log(o2);						//
+		console.log(o2);	
 		
-		
-		
-		
+	//深度复制
+	function clone(src){
+	    var  o ;
+	    //判断传入数据是数组还是对象
+	    if(Object.prototype.toString.call(src) === "[object Array]" ){
+	    	o=[];
+	    }else{
+	    	o={};
+	    }
+	    //枚举
+	    for(var i in src){
+	    	if(src.hasOwnProperty(i)){
+	    		if(typeof src[i] === "object"){
+	    			o[i] = clone(src[i]);
+	    		}else{
+	    			o[i] = src[i];	
+	    		}
+	    	}	
+	    }
+	    return o;
+	}
+	//如果是一个简单的数组，元素中没有引用类型的值，可以直接用array.concat(),或者array.slice(0);来深度拷贝一个数组，这样简单又高效。
+	//数组的concat()和slice()本来就会生成一个新的数组，原来的数组不会受影响。
+	//但是要注意的是你要确保被拷贝的数组中元素中没有引用类型的值。
+	
+	
+		var o2 = {
+			name : "xw",
+			age : 24,
+			friend: [1,2,3,4]
+		}
+		var obj = JSON.stringify(o2);
+		var clo = JSON.parse(obj);
+		clo.friend.push(5);
+		clo.name = "keke";			
+		console.log(clo.friend);		//[1,2,3,4,5]
+		console.log(o2.friend);		//[1,2,3,4]         对于一般的对象克隆通过JSON,完全没有影响
 	</script>	
 	</body>
 </html>

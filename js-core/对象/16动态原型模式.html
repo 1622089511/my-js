@@ -5,5 +5,28 @@
 		<title></title>
 	</head>
 	<body>
+	<script type="text/javascript">
+		
+		
+		function Person(name,age,job){
+			
+			this.name = name;
+			this.age = age;
+			this.job = job;
+			if(typeof this.sayName != "function"){
+				Person.prototype.sayName=function(){
+					alert(this.name);
+				}
+			}
+		}
+		var p1 = new Person('lee',25,'cs');
+		var p2 = new Person('greg',27,'l');
+
+		p1.sayName();  
+		
+		
+		
+		
+	</script>	
 	</body>
 </html>

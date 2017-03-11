@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		
+		//很常见的模式,一般用来获取后端JSON数据来渲染视图
+		
+		//先写个复杂垃圾代码
+				
+			//命名空间,单体对象	
+			var A  = A || {};
+			//主体展示区容器
+			A.root = document.getElementById('content');
+			//创建视图集合;
+			A.strategy = {
+				//麻瓜实现 创建文字列表
+				'listPart': function(){
+					var a = document.createElement('div');						  //模块容器
+					var b = document.createElement('h1');						  //标题容器
+					var c = document.createElement('p');						  //描述容器
+					
+					var  at = document.createTextNode(data.data.div);     //模块内容
+					var  bt = document.createTextNode(data.data.h1);     //标题内容  
+					var  ct = document.createTextNode(data.data.p);       //描述内容  
+					
+					a.appendChild(at);
+					b.appendChild(bt);
+					c.appendChild(ct);
+					//设置id
+					for(var i=0,len = ldata.length; i<l;i++){
+						li = document.createElement('li')
+						strong = document.createElement('strong')
+						t = document.createElement("span");
+						
+						liT = document.createElement(data[i].li);
+						//插入视图								
+					}
+					s.appendChild(ul);									//向模块出入ul
+					A.root.appendChild(s);							//展现模板
+				},
+					'codePart' : function (){},
+					'onlyTitle' : function (){},
+					'guide' : function (){}
+				}
+			//创建视图入口		
+			A.init = function (data){
+			    this.strategy[data.type](data);
+			}
+			
+			//分析：插入一个节点内容开销太大，创建容器，添加内容，插入容器，插入父容器，重复工作太多，可读性差，维护性差
+			
+			
+		
+		
+		
+		
+		
+		
+		
+	</script>	
+	</body>
+</html>

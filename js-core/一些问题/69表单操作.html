@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input {
+				border: 1px solid red;
+				display: inline-block;
+			}			
+			label {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="login" name="login" method="post" action="result.jsp">
+			<input name="user" type="text" />
+			<input name="sex" type="radio" value="man" /> 男
+			<input name="sex" type="radio" value="woman" /> 女 
+			爱好：
+			<input type="checkbox" name="interest" value="basketball">篮球
+			<input type="checkbox" name="interest" value="football">足球 
+			<input type="checkbox" name="interest" value="badminton">羽毛球
+			<input type="hidden" name="from" value="welcome">
+			<input type="button" name="submit" value="submit" onclick="getFormInfo();">
+		</form>
+		<script type="text/javascript">
+			//获取指定form中的所有的<input>对象  
+			function getElements(formId) {
+				var form = document.getElementById(formId);
+				var tagElements = form.getElementsByTagName('input');
+				var elements = [].slice.call(tagElements);
+				return elements;
+			}
+
+			//获取单个input中的【name,value】数组 
+			function inputSelector(element) {
+				if(element.checked)
+					return [element.name, element.value];
+			}
+
+			function input(element) {
+				switch(element.type.toLowerCase()) {
+					case 'submit':
+					case 'hidden':
+					case 'password':
+					case 'text':
+						return [element.name, element.value];
+					case 'checkbox':
+					case 'radio':
+						return inputSelector(element);
+				}
+				return false;
+			}
+
+			//组合URL 
+			function conVal(element) {
+				var method = element.tagName.toLowerCase();
+				var parameter = input(element);
+				if(parameter) {
+					var key = encodeURIComponent(parameter[0]);
+					if(key.length == 0) return;
+					if(parameter[1].constructor != Array)
+						parameter[1] = [parameter[1]];
+					var values = parameter[1];
+					var results = [];
+					for(var i = 0; i < values.length; i++) {
+						results.push(key + '=' + encodeURIComponent(values[i]));
+					}
+					return results.join('&');
+				}
+			}
+
+			//调用方法   
+			function initForm(formId) {
+				var elements = getElements(formId);
+				var querys = [];
+				for(var i = 0; i < elements.length; i++) {
+					var query = conVal(elements[i]);
+					if(query)
+						querys.push(query);
+				}
+				return querys.join('&');
+			}
+			function getFormInfo() {
+				var params = initForm('login');
+				console.log(params);
+			}
+		</script>
+	</body>
+
+</html>
