@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+		<script type="text/javascript">
+			//回顾一下面向过程
+		/*	var oBox = document.getElementById('movebox');
+			var disX, disY;
+			oBox.onmousedown = function(ev) {
+				var oEvent = ev || window.event;
+				disX = oEvent.clientX - oBox.offsetLeft;
+				disY = oEvent.clientY - oBox.offsetTop;
+
+				document.onmousemove = function(ev) {
+					var oEvent = ev || window.event;
+					oBox.style.left = oEvent.clientX - disX + 'px';
+					oBox.style.top = oEvent.clientY - disY + 'px';
+				}
+				document.onmouseup = function() {
+					document.onmousemove = document.onmouseup = null;
+				}
+				return false;
+			}
+		*/
+		
+		//面向对象来实现
+			window.onload=function (){
+			    var oDiv1 = new Drag('box1');
+			    var oDiv2 = new Drag('box2');
+			    var oDiv3 = new Drag('box3');
+			 	oDiv1.init();   
+			 	oDiv2.init();
+			 	oDiv3.init();			 	
+			}	
+			//构造函数,全局变量变属性
+			function Drag(id){
+				this.obj = document.getElementById(id);		
+				this.disX = 0;							
+				this.disY = 0;
+			}
+			//初始化
+			Drag.prototype.init=function (){
+			    var _this = this;												    //存对象
+			    this.obj.onmousedown=function (e){			   //这里这个this.obj指的是div
+			     	var e = e || window.event;
+			     	_this.mousedown(e);							
+			     	return false;												  //阻止默认
+			    }		    
+			}
+			//原型方法
+			Drag.prototype.mousedown=function (e){	    																	
+			   	var _this = this;														//存this,不然document调用this使用的是document
+			    this.disX = e.clientX - this.obj.offsetLeft;
+			    this.disY = e.clientY - this.obj.offsetTop;
+			    
+			    document.onmousemove= function (e){
+			        var e = e || window.event;
+			       	_this.mousemove(e);	  	
+			    }
+			    document.onmouseup = function (){
+			        _this.mouseup();		
+			    }
+			}	
+			Drag.prototype.mousemove= function (e){
+			      this.obj.style.left = (e.clientX - this.disX) + 'px';
+    			  this.obj.style.top = (e.clientY - this.disY) + 'px';
+			}
+			Drag.prototype.mouseup = function (){
+			    document.onmousemove = document.onmouseup = null;
+			}		
+			
+			
+			
+
+		</script>
+	</body>
+
+</html>

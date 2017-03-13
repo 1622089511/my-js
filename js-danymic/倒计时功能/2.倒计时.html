@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>距离高考还有<span id="countDown"></span>天</div>
+<script>
+    function countDown(year,month,day) {
+          var now=new Date();            //当前时间
+          var endTime=new Date(year,month-1,day);         //目标时间
+          var leftTime = endTime.getTime() - now.getTime();
+          leftTime=Math.ceil( leftTime/ (24*60*60*1000) );      //倒计天数
+          return leftTime;
+    }
+    window.onload=function () {
+        document.querySelector('#countDown').innerText  = countDown(2017,1,27);
+    }
+
+</script>
+</body>
+</html>

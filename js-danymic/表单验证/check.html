@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input{
+				display: block;
+				margin-bottom: 40px;
+			}
+			form{
+				width: 400px;
+				height: 400px;
+				position:absolute;
+				left: 50%; top:50%;
+				transform: translate(-50%,-50%);
+				border:1px solid red;
+			}
+			#tooltipLogin{
+				color:red;
+				display: inline;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="#">
+			
+			<span>用户名:</span> <span id="tooltipLogin"></span>
+			<p> </p>
+			<input class="login" type="text" name="login" id="login" />		
+			
+			<span>密 码:</span> <span id="tooltipPass"></span><input class="password"type="password" id="pass" />
+			<p></p>
+			<span>确认密码：</span> <span id="tooltipCheck"></span><input class="password-check"  type="password" id="check"/>
+			<p></p>
+			<span>登录：</span><input class="submit" type="submit" value="登录" id="submit"/>
+		</form>
+		<script>
+		
+
+			function $(id){
+				return document.getElementById(id);
+			}
+			function getLength(str){
+				return str.replace(/[^\x00-xff]/g,"xx").length;  //单字节	
+			}
+			
+		window.onload=function(){
+			var oName = $('login');   var tipName = $('tooltipLogin');
+			var oPass = $('pass');	  var tipPass = $('tooltipPass');	
+			var oCheck = $('check');  var tipCheck = $('tooltipCheck');
+			var oBtn = $('submit');   var name_length = 0; 
+			var p=document.getElementsByTagName('p');
+		//用户名：
+			oName.onfocus=function(){
+				tipName.style.display = 'block';
+				tipName.innerHTML = '用户名不能为空，一个汉字为两个字符，推荐使用中文会员名';
+			}
+			oName.onkeyup=function(){
+				name_length = getLength(this.value);
+				p[0].style.visibility='block';
+				p[0].innerHTML=name_length + '个字符'; 
+				if(name_length == 0){
+					p[0].style.visibility='hidden';
+				}
+			}
+			oName.onblur=function(){
+				//含有非法字符
+				var re= /[^\w\u4e00-\u9fa5]/g;
+				if(re.test(this.value)){
+					tipName.innerHTML = '含有非法字符';
+				}
+				//不能为空
+				else if(this.value == ""){
+					tipName.innerHTML = '不能为空';
+				}
+				//长度超过25个字符，长度少于6个字符
+				else if(name_length > 25 || name_length < 6){
+					tipName.innerHTML = '长度超长或者太短';
+				}
+				//OK
+				else{
+					tipName.innerHTML = 'OK';
+				}
+			}
+		//密码：		
+			oPass.onfocus=function(){
+				
+			}
+			oPass.onkeyup=function(){
+				
+			}
+			oPass.onblur=function(){
+				
+			}
+			
+		}
+		
+		
+	
+		</script>
+	</body>
+</html>

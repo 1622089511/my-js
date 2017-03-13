@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 点击鼠标则画线  -->
+    <title>Title</title>
+    <script>
+        //点击鼠标则在画布里画线
+    window.onload=function ()
+        {
+            var oC = document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+            oGC.lineCap="round";
+            oGC.lineWidth="20";
+
+            //具体算法
+            oC.onmousedown = function (ev) {
+                var ev=ev || window.event;
+                oGC.moveTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+
+                document.onmousemove=function(ev){
+                       var ev=ev||window.event;
+                        oGC.lineTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+                        oGC.stroke();
+                }
+                document.onmouseup=function(){
+                    document.onmousemove=null;
+                    document.onmouseup=null;
+                }
+            }
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+<canvas id="c1"  style="border: 1px solid red;" width="400" height="400">
+    <span>浏览器不支持canvas</span>
+</canvas><!-- 默认宽300 高150px-->
+</body>
+</html>

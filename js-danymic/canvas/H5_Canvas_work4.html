@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>矩形旋转运动</title>
+    <script>
+        window.onload=function(){
+            var oC = document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+            var num = 0;
+            var num2 = 0;
+            var value = 1;
+
+            setInterval(function(){
+                num++;
+                oGC.save();
+                oGC.clearRect(0,0,oC.width,oC.height);
+                oGC.translate(100,100);
+
+                if(num2 == 100){
+                    value = -1;
+                }
+                else if(num2 == 0){
+                    value = 1;
+                }
+
+                num2 += value;
+                oGC.scale( num2*1/50,num2*1/50 );
+                oGC.rotate(num*Math.PI/180);
+                oGC.translate(-50,-50);
+                oGC.fillRect(0,0,100,100);
+                oGC.restore();
+            },40);
+        };
+    </script>
+</head>
+<body>
+<canvas id="c1" style="border: 1px solid #ccc" height="400" width="400">
+    <span>浏览器不支持canvas</span>
+</canvas>
+</body>
+</html>

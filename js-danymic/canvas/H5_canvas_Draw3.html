@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 点击鼠标则画线  -->
+    <title>弧线</title>
+    <script>
+        //点击鼠标则在画布里画线
+        window.onload=function ()
+        {
+            var oC = document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+
+            oGC.moveTo(100,200);
+            //oGC.arcTo(100,100,200,100,50);
+            //oGC.quadraticCurveTo(100,100,200,100,50);
+            oGC.bezierCurveTo(100,100,200,200,200,100)
+            oGC.stroke();
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+<canvas id="c1"  style="border: 1px solid red;" width="400" height="400">
+    <span>浏览器不支持canvas</span>
+</canvas><!-- 默认宽300 高150px-->
+</body>
+</html>

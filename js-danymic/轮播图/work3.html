@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	*{margin: 0;padding: 0;}
+		.carousel{
+			width: 500px; height: 500px;
+			border:20px solid saddlebrown;
+			position:relative;
+			overflow: hidden;
+		}
+		.carousel img{
+			width: 500px; height: 460px;
+			display: block;
+		}
+		
+		.prev , .next{
+			font-size: 50px;
+			position:absolute;
+			top:200px; 
+			width: 60px; height: 60px; line-height: 60px;
+			text-align: center; background: #000000; opacity: 0.4;
+			color:#fff; -webkit-user-select: none;
+		}
+		.next{
+			right: 0; top:200px; 
+		}
+		.prev:hover, .next:hover{opacity: 1;}
+		p{height: 20px; line-height: 20px; text-align: center;
+		background: #808080; opacity: 0.6; margin:0; padding:0;
+		}
+		.items  span{
+			display: inline-block; width: 15px; height: 20px;background: gray; margin-right: 2px;
+			border-radius: 50%;
+		}
+		.items{width: 150px; height: 20px; position:absolute;left: 220px; bottom:20px; }
+		.items .active{background: #fff;}
+	</style>
+	<body>
+		<div class="carousel">
+			<p></p>
+			<span class="prev" id="prev"></span>
+			<span class="next" id="next">></span>
+			<img src="1.jpg" alt="img" id="img" class="img" />
+			<p>古装美女</p>
+			<div class="items">
+				<span class=" active"></span>
+				<span ></span>
+				<span ></span>
+				<span ></span>
+			</div>			
+		</div>
+	<script>
+		var oPre = document.getElementById('prev');
+		var oNex = document.getElementById('next');
+		var oImg =document.getElementById('img');
+		var aP1 = document.getElementsByTagName('p')[0];
+		var aP2 = document.getElementsByTagName('p')[1];
+		var oItems = document.getElementsByClassName('items')[0];
+		var aItem = oItems.getElementsByTagName('span');
+		
+		var arr = ["这是图片1的描述","这是图片2的描述","这是图片3的描述","这是图片4的描述"];
+		var arr2 = ["1.jpg","2.jpg","3.jpg","4.jpg"]
+		var num = 0;
+		// 初始化
+		aP1.innerHTML = num + 1 + '/'+arr.length;
+		aP2.innerHTML = arr[num];
+		
+		//右侧点击
+		oNex.onclick=function(){				
+				num++;			
+				if(num == 4){	num = 0;}
+				aP1.innerHTML = num +1 + '/'+arr.length;
+				aP2.innerHTML = arr[num];	
+				
+				for(var i=0;i<aItem.length;i++){
+					aItem[i].className ='';				
+				}
+				aItem[num].className='active';
+				oImg.src=arr2[num];
+		}
+		
+		//左侧点击
+		oPre.onclick=function(){	
+				num--;
+				if(num == -1){
+					num= 3;
+				}
+				aP1.innerHTML = num +1 + '/'+arr.length;
+				aP2.innerHTML = arr[num];
+				
+				for(var i=0;i<aItem.length;i++){
+					aItem[i].className ='';
+				}
+				aItem[num].className='active';
+				oImg.src=arr2[num];
+		}
+		
+		
+	</script>		
+	</body>
+</html>

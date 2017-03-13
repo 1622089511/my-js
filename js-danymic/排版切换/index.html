@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+			margin:0;padding:0;
+		}
+		body{
+			font:14px,"微软雅黑",arial;
+		}
+		a{
+			text-decoration: none; 
+		}
+		#box{
+			 width: 550px;
+			border:1px solid #aaa;
+			margin:0 auto; overflow:hidden;
+		}
+		.top{
+			height: 40px;
+		}
+		.top a{
+			height:16px; width: 16px;
+			display: block;	
+			float:right; margin:5px;
+			background:#fff url(btns.gif) no-repeat;		
+		}
+		.top .btn-card-on{
+			background-position:0 0;	
+			
+		}
+		.top .btn-card-off{
+			background-position:-16px 0;
+								  
+		}
+		.top .btn-list-on{
+			background-position:0 -16px;
+		} 
+								 	
+		.top .btn-list-off{
+			background-position:-16px -16px;
+		}	
+		#box ul{
+		  	list-style:none;
+	  	}
+		#box ul li{
+		  	height: auto; width: 164px;
+		  	border:1px solid #aaa; 
+		  	float:left;
+		}
+		#box ul{
+			margin:0 auto;
+			height: 226px; width: 503px;
+	
+		}
+		.con{
+			overflow: hidden;
+			clear:both;
+		}
+		
+		.con p a, .con p span{
+			display: block; 
+			line-height: 23px;
+			padding-left: 10px;
+		} 
+		.bottom{
+			text-align: center;
+			height: 40px; line-height: 40px; text-align: center;
+			background-color: #ccc;
+		}
+		
+		.con .small{
+			float:left;
+		}
+		.con p{
+			float:left;
+		}
+		</style>
+	</head>
+	<body>
+		<!--多行多列排版-->
+		<div id="box">
+			<div class="top">
+				<a href="#" title="列表模式" id="btn1" class="btn-card-on "></a>
+				<a href="#" title="卡片模式" id="btn2" class="btn-list-off"></a>
+			</div>
+			<ul>
+				<li>
+					<div class="con">
+						<a href="#" class="small">
+							<img src="small.jpg" alt="大" />						
+						</a>
+						<p>
+							<a href="#">白阳</a>
+							<span>陕西</span>
+							<span>21个好友</span>
+						</p>
+					</div>
+					<div class="bottom">
+						未分组好友
+					</div>
+				</li>
+				<li>
+					<div class="con">
+						<a href="#" class="small">
+							<img src="small.jpg" alt="大" />						
+						</a>
+						<p>
+							<a href="#">白阳</a>
+							<span>陕西</span>
+							<span>21个好友</span>
+						</p>
+					</div>
+					<div class="bottom">
+						未分组好友
+					</div>
+				</li><li>
+					<div class="con">
+						<a href="#" class="small">
+							<img src="small.jpg" alt="大" />						
+						</a>
+						<p>
+							<a href="#">白阳</a>
+							<span>陕西</span>
+							<span>21个好友</span>
+						</p>
+					</div>
+					<div class="bottom">
+						未分组好友
+					</div>
+				</li><li>
+					<div class="con">
+						<a href="#" class="small">
+							<img src="small.jpg" alt="大" />						
+						</a>
+						<p>
+							<a href="#">白阳</a>
+							<span>陕西</span>
+							<span>21个好友</span>
+						</p>
+					</div>
+					<div class="bottom">
+						未分组好友
+					</div>
+				</li><li>
+					<div class="con">
+						<a href="#" class="small">
+							<img src="small.jpg" alt="大" />						
+						</a>
+						<p>
+							<a href="#">白阳</a>
+							<span>陕西</span>
+							<span>21个好友</span>
+						</p>
+					</div>
+					<div class="bottom">
+						未分组好友
+					</div>
+				</li><li>
+					<div class="con">
+						<a href="#" class="small">
+							<img src="small.jpg" alt="大" />						
+						</a>
+						<p>
+							<a href="#">白阳</a>
+							<span>陕西</span>
+							<span>21个好友</span>
+						</p>
+					</div>
+					<div class="bottom">
+						未分组好友
+					</div>
+				</li>	
+				</ul>
+		</div>
+		<script>
+			window.onload=function(){
+				var oBtn1 = document.getElementById('btn1'),
+					oBtn2 = document.getElementById('btn2'),
+					aImg = document.getElementsByTagName('img');
+				oBtn2.onclick=function(){
+					this.className='btn-list-on';
+					oBtn1.className='btn-card-off';
+					for(var i=0 ;i<aImg.length;i++)
+						{
+							aImg[i].src = 'big.jpg';
+							aImg[i].parentNode.className='';
+						}
+					
+				}
+				oBtn1.onclick=function(){
+					this.className='btn-card-on';
+					oBtn2.className='btn-list-off';
+					for(var i=0 ;i<aImg.length;i++)
+						{
+							aImg[i].src = 'small.jpg';
+							aImg[i].parentNode.className='small';
+						}
+				}		
+			}
+		</script>
+	</body>
+</html>

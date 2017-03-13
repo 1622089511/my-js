@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			 .active{
+				background: red;
+			}
+			#tabwrap div,
+			#tabwrap2 div,
+			#tabwrap3 div{
+				width: 200px;
+				height: 200px;
+				display: none;
+				border:1px solid gray;
+			}
+			#tabwrap .block,
+			#tabwrap2 .block,
+			#tabwrap3 .block{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+	<div id="tabwrap">
+		<input type="button" value="1" class="active" />
+		<input type="button" value="2" />
+		<input type="button" value="3" />
+		<div class="block">111</div>
+		<div>222</div>
+		<div>333</div>
+	</div>
+	
+	<div id="tabwrap2">
+		<input type="button" value="1" class="active" />
+		<input type="button" value="2" />
+		<input type="button" value="3" />
+		<div class="block">111</div>
+		<div>222</div>
+		<div>333</div>
+	</div>
+	
+	<div id="tabwrap3">
+		<input type="button" value="1" class="active" />
+		<input type="button" value="2" />
+		<input type="button" value="3" />
+		<div class="block">111</div>
+		<div>222</div>
+		<div>333</div>
+	</div>
+	<script type="text/javascript">
+	/*	面向过程做一下
+	   var oTab = document.getElementById('tabwrap');
+		var aBtn = oTab.getElementsByTagName('input');
+		var aDiv = oTab.getElementsByTagName('div');
+		console.log(aBtn,aDiv);
+		for(var i=0,l=aBtn.length;i<l;i++){
+			aBtn[i].index = i;
+			aBtn[i].onclick=function (){
+			    for(var j=0;j<aBtn.length;j++){
+			    	aBtn[j].className='';
+			    	aDiv[j].className = '';
+			    }
+			    this.className='active';
+			    aDiv[this.index].className='block';
+			}
+		}
+	*/
+		//面向对象改写
+	
+		function Tab(id){	    
+		    this.oDiv = document.getElementById(id);
+		    this.aBtn = this.oDiv.getElementsByTagName('input');
+		    this.aDiv = this.oDiv.getElementsByTagName('div');
+
+			var _this =this;												 //保存oTab		
+			for(var i=0;i<this.aBtn.length;i++){
+				this.aBtn[i].index = i;
+				this.aBtn[i].onclick=function (){
+				    _this.tab(this);											 //调用实例化对象传递当前btn的值
+				}
+			}
+		}
+		
+		Tab.prototype.tab=function(oBtn){   
+		    for(var i=0;i<this.aBtn.length;i++){
+		    	this.aBtn[i].className='';
+		    	this.aDiv[i].className = '';
+		    }
+		    oBtn.className = 'active';								 //要被点击的按钮改变，而不是new出来的对象，所以这里不用this
+		    this.aDiv[oBtn.index].className = 'block';
+		}
+		
+		//调用
+		window.addEventListener('load',function (){
+			var a = new Tab('tabwrap');
+			var b = new Tab('tabwrap2');
+			var c = new Tab('tabwrap3');
+			},false);
+		
+		
+	</script>	
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{ background:black;}
+        #c1{ background:white;}
+    </style>
+    <script>
+      window.onload=function(){
+            var oC=document.getElementById('c1');
+            var oGC=oC.getContext('2d');
+
+            oGC.fillRect(0,0,100,100);
+            var oImag=oGC.getImageData(0,0,100,100);
+             //alert(oImag.width); 一行像素个数
+             //alert(oImag.height); 一列像素个数
+             //alert(oImag.data);
+             oGC.putImageData(oImag,100,100);    //方法1
+             //方法2 createImageData
+
+        };
+
+    </script>
+</head>
+<body>
+<canvas id="c1" width="400" height="400">
+    <span>浏览器不支持canvas</span>
+</canvas>
+</body>
+</html>

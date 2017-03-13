@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		.wrap{
+			margin: 0 auto;	
+			width: 200px;
+			height: 500px;	
+		}
+		.message-board{
+			width: 200px;
+			height: 300px;
+			border:1px solid bisque;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div id="board" class="message-board"></div>
+			<input type="text" id="text" />
+			<input type="button" id="send" value="发送"/>
+		</div>
+		<script>
+			var oBo=document.getElementById('board');
+			var oText = document.getElementById('text');
+			var oSend = document.getElementById('send');
+			
+			oSend.onclick=function(){
+				oBo.innerHTML += "李雷:"+oText.value + '<br />';
+				oText.value = '';
+			}
+			
+			
+		</script>
+	</body>
+</html>

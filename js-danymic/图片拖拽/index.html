@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+	.box{
+		font-size: 0;
+		width: 900px;
+		height: 600px;
+		border: 2px solid gray;
+		margin: 100px auto;
+		position: relative;
+	}
+	.box:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	img{
+		vertical-align: top;
+		border: none;
+		width: 300px;
+		height: 200px;
+		float: left;
+	}
+</style>
+<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function (){		
+		var w = $('img').innerWidth();
+		var h = $('img').innerHeight();
+		var aPos = [];
+		
+		$('img').each(function (i){
+			$(this).css({
+				'position': 'absolute',
+				'left': w*(i%3),
+				'top': h*Math.floor(i/3),
+				'zIndex': 0
+			})
+			aPos.push([parseInt($(this).css('left')),parseInt($(this).css('top'))]);
+		})
+		
+		$('img').mousedown(function (ev){
+			
+			var _this = $(this);
+			var oClone = _this.clone(true);
+			var oriL = $(this).position().left;
+			var oriT = $(this).position().top;
+			var disX = ev.pageX - oriL;
+			var disY = ev.pageY - oriT;
+			
+			$(document).mousemove(function (ev){
+				
+				var L = ev.pageX - disX;
+				var T = ev.pageY - disY;
+				var maxL = $('.box').innerWidth()-w;
+				var maxT = $('.box').innerHeight()-h;
+				
+				if (L<0){
+					L = 0;
+				} else if (L>maxL) {
+					L = maxL;
+				}
+				if (T<0){
+					T = 0;
+				} else if (T>maxT) {
+					T = maxT;
+				}
+				
+				_this.css({
+					'left': L,
+					'top': T,
+					'zIndex':1
+				})
+			})	
+			$(document).mouseup(function (){
+				
+				var fL = _this.position().left;
+				var fT = _this.position().top;
+				
+				if (fL%w<w/2) {
+					fL = Math.floor(fL/w)*w;
+				} else {
+					fL = Math.ceil(fL/w)*w;
+				}
+				if (fT%h<h/2) {
+					fT = Math.floor(fT/h)*h;
+				} else {
+					fT = Math.ceil(fT/h)*h;
+				}
+				
+				for (var i=0; i<aPos.length; i++) {
+					if (fL==aPos[i][0]&&fT==aPos[i][1]) {
+						var n = i;
+					}
+				}
+				
+				$('img').eq(n).animate({
+					'left': oriL,
+					'top': oriT
+				},'fast')
+				
+				_this.animate({
+					'left': fL,
+					'top': fT
+				},'fast',function (){
+					_this.replaceWith($('img').eq(n).clone(true));
+					oClone.css({
+						'left': fL,
+						'top': fT
+					})
+					$('img').eq(n).replaceWith(oClone);
+				})
+				
+				$(this).off();
+				
+			})
+			
+			return false;
+			
+		})
+		
+	})
+</script>
+</head>
+<body>
+<div class="box">
+	<img src="img/1.jpg" alt="" />
+	<img src="img/2.jpg" alt="" />
+	<img src="img/3.jpg" alt="" />
+	<img src="img/4.jpg" alt="" />
+	<img src="img/5.jpg" alt="" />
+	<img src="img/6.jpg" alt="" />
+	<img src="img/7.jpg" alt="" />
+	<img src="img/8.jpg" alt="" />
+	<img src="img/9.jpg" alt="" />
+</div>
+</body>
+</html>

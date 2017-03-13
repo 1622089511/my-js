@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input {
+				border: 1px solid red;
+			}			
+			label {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+
+		<form id="login" name="login" method="post" action="result.jsp">
+			账号:<input type="text"    name="username" />				<br />
+			密码:<input type="password"    name="password" />				<br />
+			姓名:<input type="text"    name="user"  />						<br />
+			性别:<input type="radio" name="sex" value="man" />男		                                     <!--单选框设置一样的name就可以只选择1个 -->
+					<input type="radio" name="sex" value="woman" />女 	<br />
+			爱好:
+			<input type="checkbox" name="interest" value="basketball">篮球
+			<input type="checkbox" name="interest" value="football">足球 
+			<input type="checkbox" name="interest" value="badminton">羽毛球
+			
+			<input type="hidden" name="from" value="welcome">				<br />
+			<input type="button" name="submit" value="提交" id="submit" >
+		</form>
+		<script type="text/javascript">
+			//获取指定form中的所有的<input>对象  
+			function getElements(formId) {
+				var form = document.getElementById(formId);									//获取form
+				var tagElements = form.getElementsByTagName('input');					//获取form下的input
+				var elements = [].slice.call(tagElements);												//转为数组格式
+				return elements;
+			}
+
+			//获取单个input中的[name,value]数组 
+			function inputSelector(element) {
+				if(element.checked)
+					return [element.name, element.value];
+			}
+
+			function input(element) {
+				switch(element.type.toLowerCase()) {
+					case 'submit':
+					case 'hidden':
+					case 'password':
+					case 'text':
+						return [element.name, element.value];
+					case 'checkbox':
+					case 'radio':
+						return inputSelector(element);
+				}
+				return false;
+			}
+
+			//组合URL 
+			function conVal(element) {
+				var method = element.tagName.toLowerCase();            //get/post方式
+				var parameter = input(element);
+				if(parameter) {
+					
+					var key = parameter[0];										//encodeURIComponent
+					if(key.length == 0) return;
+					if(parameter[1].constructor != Array)
+						parameter[1] = [parameter[1]];
+						
+					var values = parameter[1];	
+					var results = [];
+					for(var i = 0; i < values.length; i++) {
+						results.push(key + '=' + values[i]);
+					}
+					return results.join('&');
+				}
+			}
+
+			//调用方法   
+			function initForm(formId) {
+				var elements = getElements(formId);      					//获取所有input
+				var querys = [];															//创建数组
+				for(var i = 0; i < elements.length; i++) {				
+					var query = conVal(elements[i]);							//创建
+					if(query)
+						querys.push(query);
+				}
+				return querys.join('&');											  //返回拼接&
+			}
+			
+		//window入口	
+		window.onload=function (){
+		    var obj = document.getElementById('submit');   
+		    obj.addEventListener('click',function (){
+		    		var params = initForm('login');
+		        	alert(params);   	
+		  		});
+		}	
+			
+		</script>		
+	</body>
+</html>

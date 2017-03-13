@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方块自动移动</title>
+    <script>
+        window.onload=function(){
+            var oC=document.getElementById('c1');
+            var oGC=oC.getContext('2d');
+            var num=0;
+            oGC.fillRect(0,0,100,100);
+            setInterval(function () {
+                num++;
+
+                oGC.clearRect(0,0,oC.width,oC.height);
+                oGC.fillRect(num,num,100,100);
+            },30);
+
+
+
+
+        };
+    </script>
+</head>
+<body>
+<canvas id="c1" style="border: 1px solid #ccc" width="400" height="400">
+    <span>浏览器不支持canvas</span>
+</canvas>
+</body>
+</html>

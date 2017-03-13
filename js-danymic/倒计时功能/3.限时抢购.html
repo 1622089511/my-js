@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>距离抢购还剩 <span id="countDown"></span></div>
+<script>
+    function showTime() {
+        var nowTime=new Date();            //当前时间
+        var endTime=new Date("2016/11/22,3:38:00");         //目标时间
+        var leftTime = parseInt( (endTime.getTime() - nowTime.getTime() )/1000 ); 		//到秒为止
+        //3600秒  60分钟  1小时  1/24天
+        var d = parseInt(leftTime / (24*60*60));       				//还差多少天
+        var h = parseInt(leftTime / (60*60) % 24);  				//还差多少小时
+        var m = parseInt(leftTime/ 60 % 60);  						//还差多少分钟
+        var s = parseInt(leftTime % 60 ); 								//还差多少秒
+
+        console.log(d+'天',h+'小时',m+'分',s+'秒钟');  
+        document.querySelector('#countDown').innerText =d+'天'+h+'小时'+m+'分钟'+s+'秒';
+        if(leftTime <= 0){
+            document.querySelector('#countDown').innerText = '团购结束' ;
+            clearInterval(timer);
+        }
+    }
+    showTime();
+    var timer=setInterval(showTime,500);
+</script>
+</body>
+</html>
