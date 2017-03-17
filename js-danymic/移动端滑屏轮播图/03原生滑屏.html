@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<title></title>
+		<style type="text/css">
+			*{padding:0;margin:0;}
+			html{
+				width:100%;
+				height:100%;			
+			}
+			body{
+				height:100%;
+				overflow: hidden;
+				position:relative;
+				
+			}	
+			#wrap{
+				width:100%;
+				height:100%;
+				position:absolute;
+				overflow: hidden;
+			}
+			#scroll{
+				position:absolute;
+				left:0;
+				top:0;
+				width:100%;
+			}
+			p{
+				padding:7px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="scroll">
+				<p>限制条件：最多上下多滑50px</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+				<p>这是文字，我要滑屏，不要滚动条</p>
+			</div>
+		</div>
+	<script type="text/javascript">
+		var oWrap = document.getElementById('wrap');
+		var oScroll = document.getElementById('scroll');
+		var startPoint = 0;																    //手指坐标
+		var oScrollPoint = 0;															    //内部块距离顶部的距离
+		var min = oScroll.clientHeight - oWrap.clientHeight ;		//记录限制条件,内部高比较高的盒子-外部包裹的盒子
+	
+		oWrap.addEventListener('touchstart',function (e){
+		    var  touch = e.changedTouches[0];								//发生事件的当前手指列表
+		    startPoint = touch.pageY ; 											//第一次手指坐标
+		    oScrollPoint = oScroll.offsetTop;									//内部块的原始距离顶部的值
+		},false)
+																									//移动时记录当前坐标,用移动后记录的坐标-按下去的时候坐标 == 手指移动距离
+		oWrap.addEventListener('touchmove',function (e){
+		    var  touch = e.changedTouches[0];					
+		    var  nowPoint = touch.pageY;										//第二次手指坐标	
+		    var  dis = nowPoint - startPoint;									//第二次手指坐标-第一次手指坐标的差值,大于0说明手指向下,反之向上
+		    //加判断条件
+		    var top = oScrollPoint + dis;
+		    if(top>50){
+		    	top = 50;
+		    }if(top< -min){										//因为内部盒子要大，所以这个差值是正值，而向下滑这个差值一直再增大
+				top = -min -50;
+		    }
+		    oScroll.style.top = top + 'px';					//当前的top值 = 内部块的offsetTop + 第一次手指和第二次手指移动的差值
+		    
+		},false)
+		
+		/*
+		onorientationchange 					//方向转变
+		ondeviceorientation 						//重力感应
+		*/
+		
+		
+	</script>	
+	</body>
+</html>
