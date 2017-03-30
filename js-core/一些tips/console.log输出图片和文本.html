@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				%s	字符串
+				%d, %i	整数（目前还不支持数字格式）
+				%f/%.xf	浮点数x表示小数位数的数量应四舍五入到（如果省略的话，这个数字将不进行四舍五入）
+				%o	对象的超链接
+				%c	样式格式
+			*/
+			
+			var cat = "cat",
+				count = 2;
+			console.log('this is a %s',cat);
+			console.log('there are %d %ss',2,cat);
+			
+			var oDiv=document.createElement("div"); oDiv.style.width="100px"; oDiv.style.height="100px"; oDiv.style.backgroundColor="red"; 
+			console.log("The %o", oDiv);
+			
+			var dog="dog",count1=2; 
+			console.log("The %c %s jumped over %f tall buildings","font-size:30px;text-shadow:10px 10px 12px #000;", dog, count1); //文字带样式
+			
+			console.log("%c                   ","font-size:50px;font-family:'体';background:url(https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png) no-repeat;"); 
+			//文本空格代替图片
+		</script>
+	</body>
+</html>
